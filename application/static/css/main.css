@@ -1,0 +1,17 @@
+footer {
+    position: absolute;
+    text-align: center;
+    height: 50px;
+    color: black;
+    padding: 5px;
+    margin-top: 10px;
+    bottom: 0px;
+}
+
+body {
+    min-height: 100vh;
+    position: relative;
+    margin: 0;
+    padding-bottom: 100px; //height of the footer
+    box-sizing: border-box;
+}
