@@ -1,15 +1,25 @@
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="{{  url_for('index') }}">Portfolio</a>
+            <a class="navbar-brand" href="{{ url_for('index') }}">Portfolio</a>
         </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-              <li class="nav-item"><a href="{{  url_for('about') }}" class="nav-link {%if about%} active {%endif%}">About</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{  url_for('login') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-            </ul>
-        </div>
+        <ul class="nav nav-pills" id="myNavbar">
+            <li class="nav-item"><a href="{{ url_for('about') }}" class="nav-link {%if 
+                about%} active {%endif%}">About</a></li>
+            {% if not session['username'] %}
+                <li class="nav-item"><a href="{{ url_for('register') }}" class="nav-link {%if 
+                    about%} active {%endif%}">Register</a></li>
+            {% endif %}
+        
+            {% if not session['username'] %}
+                <ul class="nav-item navbar-right">
+                    <li><a href="{{ url_for('login') }}"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+                </ul>
+            {% else %}
+                <ul class="nav-item navbar-right">
+                    <li><a href="{{ url_for('logout') }}"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+                </ul>
+            {% endif %}
+        </ul>
     </div>
 </nav>

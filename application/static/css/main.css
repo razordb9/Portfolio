@@ -1,3 +1,4 @@
+/* git token 61db0a118c4fb66fffd78c8a9dc3a8b3c97e7cec */
 footer {
     text-align: center;
     height: 50px;
@@ -11,15 +12,37 @@ footer {
     border-radius: 0;
 }
 body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     min-height: 100vh;
     position: relative;
     margin: 0;
-    padding-bottom: 100px; //height of the footer
+    /*padding-bottom: 100px;*/
     box-sizing: border-box;
 }
+
+li {
+    display: inline;
+    padding: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: #9d9d9d;
+}
+
+a:hover { color : blue;}
+
 #login {
     width: 800px;
     margin: 0 auto;
+}
+.container-row {
+    margin: 1% 25% 1% 25%;
+    width:50%;
+    height: 70%;
+}
+.row {
+    margin:0;
 }
 .fa {
     padding: 20px;
@@ -29,14 +52,28 @@ body {
     text-decoration: none;
     margin: 5px 2px;
 }
-.fa:hover{
-    opacity: 0.7;
+.fa-linkedin {
+    background: #007bb5;
+    color: white;
 }
 .fa-twitter {
     background: #55ACEE;
     color: white;
- }
-.fa-facebook {
-    background: #3B5998;
+}
+.fa-instagram {
+    background: #fbad50 ;
     color: white;
+}
+.fa-github {
+    background: black;
+    color: white;
+}
+
+.user {
+    color: white;
+    float: right;
+    position: absolute;
+    font-size: 25px;
+    right: 10em;
+    top: 2em;
 }

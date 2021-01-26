@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block body %}
+    <table>
+        {% for data in userData %}
+        <tr>
+            <th>Firstname: </th>
+            <td>{{ data["first_name"] }}</td>
+        </tr>
+        <tr>
+            <th>Lastname: </th>
+            <td>{{ data["last_name"] }}</td>
+        </tr> 
+        {% endfor %}
+    </table>
+{% endblock %}
