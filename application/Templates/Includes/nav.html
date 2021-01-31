@@ -6,11 +6,10 @@
         <ul class="nav nav-pills" id="myNavbar">
             <li class="nav-item"><a href="{{ url_for('about') }}" class="nav-link {%if 
                 about%} active {%endif%}">About</a></li>
-            {% if not session['username'] %}
-                <li class="nav-item"><a href="{{ url_for('register') }}" class="nav-link {%if 
-                    about%} active {%endif%}">Register</a></li>
-            {% endif %}
-        
+            {% if session['permission'] == 'Admin' %}
+                <li class="nav-item"><a href="{{ url_for('adminpage') }}" class="nav-link {%if 
+                    about%} active {%endif%}">Admin Page</a></li>
+            {% endif %}       
             {% if not session['username'] %}
                 <ul class="nav-item navbar-right">
                     <li><a href="{{ url_for('login') }}"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
@@ -20,6 +19,8 @@
                     <li><a href="{{ url_for('logout') }}"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
                 </ul>
             {% endif %}
+
+            
         </ul>
     </div>
 </nav>

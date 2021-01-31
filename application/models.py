@@ -11,9 +11,9 @@ class User(db.Document):
     user_id     =   db.IntField( unique=True)
     first_name  =   db.StringField( max_length=50)
     last_name   =   db.StringField( max_length=50)
-    description =   db.StringField( max_length=50)
     email       =   db.StringField( max_length=100)
     password    =   db.StringField()
+    permission  =   db.StringField()
 
     def set_password(self,password):
         self.password = generate_password_hash(password)

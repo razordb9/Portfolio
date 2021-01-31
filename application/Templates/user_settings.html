@@ -5,16 +5,22 @@ Login
 {% endblock %}
 
 {% block body %}
-    <table>
-        {% for data in userData %}
+    <table class="table table-hover">
+        <thead>
         <tr>
-            <th>Firstname: </th>
-            <td>{{ data["first_name"] }}</td>
+            <th scope="col">User ID</th>
+            <th scope="col">Firstname</th>
+            <th scope="col">Lastname</th>
+            <th scope="col">Email</th>
+            <th scope="col">Permission</th>
         </tr>
-        <tr>
-            <th>Lastname: </th>
-            <td>{{ data["last_name"] }}</td>
-        </tr> 
-        {% endfor %}
+        </thead>
+        <tbody>
+            <td scope='row'>{{ data.user_id }}</td>
+            <td>{{ data.first_name }}</td>
+            <td>{{ data.last_name }}</td>
+            <td>{{ data.email }}</td>
+            <td>{{ data.permission }}</td>
+        </tbody>
     </table>
 {% endblock %}

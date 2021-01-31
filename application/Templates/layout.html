@@ -10,9 +10,7 @@
     <body>
         {% include "includes/nav.html" %}
 
-        {% if session['username'] %}
-            <a href="{{ url_for('user_settings') }}"><span class="user"></span>Welcome, {{ session['username'] }}</a></li>
-        {% endif %}
+        
 
         {% with messages = get_flashed_messages(with_categories=True)%}
             {% if messages %}
@@ -23,7 +21,10 @@
                 {% endfor %}
             {% endif %}
         {% endwith %}
-
+        
+        {% if session['username'] %}
+            <a href="{{ url_for('user_settings') }}"><span class="user"></span>Welcome, {{ session['username'] }}</a></li>
+        {% endif %}
         {% block body %}
         {% endblock %}
 
