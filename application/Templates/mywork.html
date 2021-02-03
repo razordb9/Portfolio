@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Admin Page
+{% endblock %}
+
+{% block body %}
+<h3>My work</h3>
+
+<div>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Work ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Change Entry</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <!-- Construct the rest of courses here -->
+        {% for work in workData %}
+        <tr>
+            <td scope='row'>{{ work.work_id }}</td>
+            <td>{{ work.title }}</td>
+            <td>{{ work.description }}</td>
+            <td>
+                <form action="{{ url_for('myworkitems')}}" method="POST">
+                    <input type="hidden" name="work_id" value="{{work['work_id']}}">
+                    <input type="hidden" name="title" value="{{work['title']}}">
+                    <input type="hidden" name="description" value="{{work['description']}}">
+                    <button>Change</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <form action="{{url_for('addmyworkitem')}}">
+        <button>Add new work item</button>
+    </form>
+</div>  
+{% endblock %}

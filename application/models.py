@@ -3,7 +3,7 @@ from application import db
 from werkzeug.security import generate_password_hash, check_password_hash
 
 class work(db.Document):
-    work_id     =   db.StringField( max_length=10, unique=True )
+    work_id     =   db.IntField( max_length=10, unique=True )
     title       =   db.StringField( max_length=100 )
     description =   db.StringField( max_length=255 )
 
