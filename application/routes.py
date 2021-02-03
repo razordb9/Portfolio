@@ -23,16 +23,6 @@ def user_settings():
     permission = request.form.get('permission')
     return render_template("user_settings.html", form=form, data={"user_id":id,"first_name":first_name,"last_name":last_name,"email":email,"permission":permission}) 
 
-@app.route("/requestTest", methods=["GET", "POST"])
-def requestTest():
-    if request.method == "POST": 
-        # getting input with name = fname in HTML form 
-        first_name = request.form.get("fname") 
-        # getting input with name = lname in HTML form  
-        last_name = request.form.get("lname")  
-        return "Your name is "+first_name + last_name 
-    return render_template("requestTest.html")
-
 @app.route("/remove", methods=["GET", "POST"])    
 def remove():    
     try:
@@ -98,7 +88,7 @@ def adminpage():
     if not session.get('permission') == 'Admin':
         return redirect(url_for('index'))
     users = User.objects.all()
-    return render_template("adminpage.html", about=True, userData=users)
+    return render_template("adminpage.html", adminpage=True, userData=users)
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
