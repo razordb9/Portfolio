@@ -1,6 +1,6 @@
 from application import app
 from flask import render_template, redirect, flash, request, Response, json, session, url_for
-from application.forms import LoginForm, RegisterForm
+from application.forms import LoginForm, RegisterForm, UpdateUserForm
 from application.models import work, User
 
 @app.route("/")
@@ -13,15 +13,60 @@ def index():
 def user_settings():
     if not session.get('username'):
         return redirect(url_for('index'))
+    
+    form = UpdateUserForm()
 
-    user_id = request.form.get(user_id)
-    first_name = request.form.get(first_name)
-    last_name = request.form.get(last_name)
-    email = request.form.get(email)
-    permission = request.form.get(permission)
+    id = request.form.get('user_id')
+    first_name = request.form.get('first_name')
+    last_name = request.form.get('last_name')
+    email = request.form.get('email')
+    permission = request.form.get('permission')
+    return render_template("user_settings.html", form=form, data={"user_id":id,"first_name":first_name,"last_name":last_name,"email":email,"permission":permission}) 
 
-    #return render_template("enrollment.html", enrollment=True, data={"id":id,"title":title,"term":term})   
-    return render_template("user_settings.html", data={"id":user_id,"first_name":first_name,"last_name":last_name,"email":email,"permission":permission}) 
+@app.route("/requestTest", methods=["GET", "POST"])
+def requestTest():
+    if request.method == "POST": 
+       # getting input with name = fname in HTML form 
+       first_name = request.form.get("fname") 
+       # getting input with name = lname in HTML form  
+       last_name = request.form.get("lname")  
+       return "Your name is "+first_name + last_name 
+    return render_template("requestTest.html")
+
+@app.route("/remove", methods=["GET", "POST"])    
+def remove():    
+    try:
+        key=request.form.get("user_id")    
+        key = int(key)
+        User.objects(user_id=key).delete()
+        flash("You successfully removed the user!", "success")    
+        return redirect(url_for('adminpage'))   
+    except:
+        flash("You couldn't removed the user!", "success")    
+        return redirect(url_for('user_settings'))   
+
+@app.route("/updateuser", methods=["GET", "POST"])    
+def updateuser():  
+    try:
+        if request.method == 'POST':
+            key=request.form.get("user_id")    
+            key = int(key)
+            user = User.objects(user_id=key).get()
+            print(user.user_id)
+            print(request.form.get('first_name'))
+            print(request.form.get('last_name'))
+            print(request.form.get('email'))
+            user.update(
+                first_name = request.form['first_name'],
+                last_name = request.form['last_name'],
+                email = request.form['email']
+            )
+            user.reload()
+            flash("You successfully updated the user!", "success")    
+            return redirect(url_for('adminpage'))   
+    except:
+        flash("You couldn't update the user!", "success")    
+        return redirect(url_for('user_settings')) 
 
 @app.route("/about")
 def about():

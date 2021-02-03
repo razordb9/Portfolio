@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block title %}
-Login
+User settings
 {% endblock %}
 
 {% block body %}
@@ -13,14 +13,58 @@ Login
             <th scope="col">Lastname</th>
             <th scope="col">Email</th>
             <th scope="col">Permission</th>
+            <th scope="col">Update changes</th>
+            <th scope="col">Remove User</th>
         </tr>
         </thead>
         <tbody>
             <td scope='row'>{{ data.user_id }}</td>
-            <td>{{ data.first_name }}</td>
-            <td>{{ data.last_name }}</td>
-            <td>{{ data.email }}</td>
-            <td>{{ data.permission }}</td>
+            <td><input value={{ data.first_name }} name="first_name"></input></td>
+            <td><input value={{ data.last_name }} name="last_name"></input></td>
+            <td><input type=email value={{ data.email }} size=40 name="email"></input></td>
+            <td><input value={{ data.permission }} readonly name="permission"></input></td>
+            <td>
+                <form action="/updateuser" method="POST">
+                    <input type="hidden" name="user_id" value="{{data['user_id']}}">
+                    <input type="hidden" name="first_name" value="{{data['first_name']}}">
+                    <input type="hidden" name="last_name" value="{{data['last_name']}}">
+                    <input type="hidden" name="email" value="{{data['email']}}">
+                    <button>Update</button>
+                </form>
+            </td>
+            <td>
+                <form action="/remove" method="POST">
+                    <input type="hidden" name="user_id" value="{{data['user_id']}}">
+                    <button>Remove</button>
+                </form>
+            </td>
+            <!-- Alternative with forms
+            <td>
+                <form name="login" action="" method="post" novalidate>
+                    <fieldset class="form-group">
+                        {{ form.hidden_tag() }} 
+                        <p> 
+                            {{ form.submit() }}
+                        </p>
+                    </fieldset>
+                </form>
+            </td>
+            <td>
+                <form name="login" action="" method="post" novalidate>
+                    <fieldset class="form-group">
+                        {{ form.hidden_tag() }} 
+                        <p> 
+                            {{ form.submit() }}
+                        </p>
+                    </fieldset>
+                </form>
+            </td>
+
+            -->
         </tbody>
     </table>
+    <form action="{{url_for('adminpage')}}">
+        <button>Back</button>
+    </form>
+
 {% endblock %}

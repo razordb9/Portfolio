@@ -22,3 +22,11 @@ class RegisterForm(FlaskForm):
         user = User.objects(email=email.data).first()
         if user:
             raise ValidationError("Email is already in use. Pick another one.")
+
+class UpdateUserForm(FlaskForm):
+    first_name = StringField("First Name")
+    last_name = StringField("Last Name")
+    email   = StringField("Email")
+    permission = StringField("Permission")
+    submit = SubmitField("Updateas")
+    submet = SubmitField("Remove")

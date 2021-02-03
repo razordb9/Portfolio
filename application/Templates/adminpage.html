@@ -18,7 +18,6 @@ Admin Page
             <!--<th scope="col">Password</th>-->
             <th scope="col">Permission</th>
             <th scope="col">Change setting</th>
-            <th scope="col">Remove user</th>
         </tr>
         </thead>
         <tbody>
@@ -34,20 +33,12 @@ Admin Page
             <td>{{ data.permission }}</td>
             <td>
                 <form action="{{url_for('user_settings')}}" method="POST">
-                    <input type="hidden" name="courseID" value="{{data['courseID']}}">
+                    <input type="hidden" name="user_id" value="{{data['user_id']}}">
                     <input type="hidden" name="first_name" value="{{data['first_name']}}">
                     <input type="hidden" name="last_name" value="{{data['last_name']}}">
                     <input type="hidden" name="email" value="{{data['email']}}">
                     <input type="hidden" name="permission" value="{{data['permission']}}">
-                <button>Change</button>
-                </form>
-            </td>
-            <td>
-                <form action="{{url_for('user_settings')}}" method="POST">
-                    <input type="hidden" name="courseID" value="{{data['courseID']}}">
-                    <input type="hidden" name="title" value="{{data['title']}}">
-                    <input type="hidden" name="term" value="{{data['term']}}">
-                <button>Remove</button>
+                    <button>Change</button>
                 </form>
             </td>
         </tr>
@@ -55,7 +46,7 @@ Admin Page
         </tbody>
     </table>
     <form action="{{url_for('register')}}">
-    <button>Add new user</button>
+        <button>Add new user</button>
     </form>
 </div>  
 {% endblock %}
