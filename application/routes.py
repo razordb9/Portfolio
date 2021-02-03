@@ -26,11 +26,11 @@ def user_settings():
 @app.route("/requestTest", methods=["GET", "POST"])
 def requestTest():
     if request.method == "POST": 
-       # getting input with name = fname in HTML form 
-       first_name = request.form.get("fname") 
-       # getting input with name = lname in HTML form  
-       last_name = request.form.get("lname")  
-       return "Your name is "+first_name + last_name 
+        # getting input with name = fname in HTML form 
+        first_name = request.form.get("fname") 
+        # getting input with name = lname in HTML form  
+        last_name = request.form.get("lname")  
+        return "Your name is "+first_name + last_name 
     return render_template("requestTest.html")
 
 @app.route("/remove", methods=["GET", "POST"])    
@@ -46,27 +46,48 @@ def remove():
         return redirect(url_for('user_settings'))   
 
 @app.route("/updateuser", methods=["GET", "POST"])    
-def updateuser():  
-    try:
-        if request.method == 'POST':
-            key=request.form.get("user_id")    
-            key = int(key)
-            user = User.objects(user_id=key).get()
-            print(user.user_id)
-            print(request.form.get('first_name'))
-            print(request.form.get('last_name'))
-            print(request.form.get('email'))
-            user.update(
-                first_name = request.form['first_name'],
-                last_name = request.form['last_name'],
-                email = request.form['email']
-            )
-            user.reload()
-            flash("You successfully updated the user!", "success")    
-            return redirect(url_for('adminpage'))   
-    except:
-        flash("You couldn't update the user!", "success")    
-        return redirect(url_for('user_settings')) 
+def updateuser(): 
+    if request.method == "POST": 
+        # getting input with name = fname in HTML form 
+        first_name = request.form.get("fname") 
+        # getting input with name = lname in HTML form  
+        last_name = request.form.get("lname")  
+
+        key=request.form.get("user_id")    
+        key = int(key)
+        user = User.objects(user_id=key).get()
+        user.update(
+            first_name = request.form.get("fname"),
+            last_name = request.form.get("lname"),
+            email = request.form.get("email")
+        )
+        user.reload()
+        flash("You successfully updated the user!", "success")    
+        return redirect(url_for('adminpage'))   
+    else:
+        print("failed")
+    return render_template("adminpage.html")
+
+    #try:
+    #    if request.method == 'POST':
+    #        key=request.form.get("user_id")    
+    #        key = int(key)
+    #        user = User.objects(user_id=key).get()
+    #        print(user.user_id)
+    #        print(request.form.get("firstname"))
+    #        print(request.form.get("last_name"))
+    #        print(request.form.get("email"))
+    #        user.update(
+    #            first_name = request.form.get("fname"),
+    #            last_name = request.form.get("lname"),
+    #            email = request.form.get("email")
+    #        )
+    #        user.reload()
+    #        flash("You successfully updated the user!", "success")    
+    #        return redirect(url_for('adminpage'))   
+    #except:
+    #    flash("You couldn't update the user!", "success")    
+    #    return redirect(url_for('adminpage')) 
 
 @app.route("/about")
 def about():
