@@ -1,13 +1,101 @@
 from application import app
 from flask import render_template, redirect, flash, request, Response, json, session, url_for
-from application.forms import LoginForm, RegisterForm, UpdateUserForm, MyWorkItem, AddMyWorkItem
-from application.models import work, User
+from application.forms import LoginForm, RegisterForm, UpdateUserForm, MyWorkItem, AddMyWorkItem, AddBlogEntry, BlogEntry
+from application.models import work, User, blog
 
 @app.route("/")
 @app.route("/index")
 def index():
     workData = work.objects.all()
     return render_template("index.html", index=True, workData=workData)
+
+@app.route("/blogentries")
+def blogentries():
+    if not session.get('permission') == 'Admin':
+        return redirect(url_for('index'))
+    blogs = blog.objects.order_by("work_id")
+    return render_template("blogentries.html", blogentries=True, blogData=blogs) 
+   
+@app.route("/blogentry", methods=["GET", "POST"])
+def blogentry():
+    if not session.get('permission') == 'Admin':
+        return redirect(url_for('index'))
+
+    form        = BlogEntry()
+
+    id          = request.form.get('blog_id')
+    title       = request.form.get('title')
+    text        = request.form.get('text')
+    visibility  = request.form.get('visibility')
+    return render_template("blogentry.html", form=form, blog={"blog_id":id,"title":title,"text":text,"visibility":visibility})
+
+    if not session.get('permission') == 'Admin':
+        return redirect(url_for('index'))
+
+    form = MyWorkItem()
+
+    id = request.form.get('work_id')
+    title = request.form.get('title')
+    description = request.form.get('description')
+    return render_template("myworkitems.html", form=form, work={"blog_id":id,"title":title,"text":text,"visibility":visibility})
+
+@app.route("/addblogentry", methods=["GET", "POST"])    
+def addblogentry():    
+    if not session.get('permission') == 'Admin':
+        return redirect(url_for('index'))
+    form = AddBlogEntry()
+    if form.validate_on_submit():
+        blog_id     = blog.objects.count()
+        blog_id    += 1
+
+        title       = form.title.data
+        text        = form.text.data
+        visibility  = form.visibility.data
+
+        blogs = blog(blog_id=blog_id, title=title, text=text, visibility=visibility)
+        blogs.save()
+        flash("You successfully created a new blog entry","success")
+        return redirect(url_for('blogentries'))
+    return render_template("addblogentry.html", title="Add new blog entry", form=form, addblogentry=True)
+
+@app.route("/updateblogentry", methods=["GET", "POST"])    
+def updateblogentry(): 
+    if request.method == "POST": 
+        # getting input with name = fname in HTML form 
+        title   = request.form.get("title") 
+        print(title)
+        # getting input with name = lname in HTML form  
+        text    = request.form.get("text")  
+        print(text)
+        #visibility = request.form.get("visibility")
+
+        key     = request.form.get("blog_id")   
+        key     = int(key)
+        print(key)
+        blogitem = blog.objects(blog_id=key).get()
+        blogitem.update(
+            title = request.form.get("title"),
+            text = request.form.get("text")
+            #visibility = request.form.get("visibility")
+        )
+        blogitem.reload()
+        flash("You successfully updated the blog entry!", "success")    
+        return redirect(url_for('blogentries'))   
+    else:
+        print("failed")
+    return render_template("blogentries.html")
+
+@app.route("/removeblogentry", methods=["GET", "POST"])    
+def removeblogentry():    
+    try:
+        key=request.form.get("blog_id")    
+        key = int(key)
+        blog.objects(blog_id=key).delete()
+        flash("You successfully removed the blog entry!", "success")    
+        return redirect(url_for('blogentries'))   
+    except:
+        flash("You couldn't removed the blog entry!", "danger")    
+        return redirect(url_for('blogentries')) 
 
 @app.route("/user_settings", methods=["GET", "POST"])
 def user_settings():
@@ -39,9 +127,10 @@ def remove():
 def updateuser(): 
     if request.method == "POST": 
         # getting input with name = fname in HTML form 
-        first_name = request.form.get("fname") 
+        #first_name  = request.form.get("fname") 
         # getting input with name = lname in HTML form  
-        last_name = request.form.get("lname")  
+        #last_name   = request.form.get("lname")  
+        print(request.form.get("perm"))
 
         key=request.form.get("user_id")    
         key = int(key)
@@ -49,6 +138,7 @@ def updateuser():
         user.update(
             first_name = request.form.get("fname"),
             last_name = request.form.get("lname"),
+            permission  = request.form.get("perm"),
             email = request.form.get("email")
         )
         user.reload()
@@ -186,6 +276,7 @@ def updatemyworkitem():
 
         key=request.form.get("work_id")    
         key = int(key)
+
         workitem = work.objects(work_id=key).get()
         workitem.update(
             title = request.form.get("title"),

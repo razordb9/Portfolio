@@ -23,7 +23,23 @@ User settings
                 <td><input type="text" id="fname" name="fname" placeholder="First Name" value={{ data.first_name }}></td>
                 <td><input type="text" id="lname" name="lname" placeholder="Last Name" value={{ data.last_name }}></td>
                 <td><input type="text" id="email" name="email" placeholder="Email" value={{ data.email }} size=40></td>
-                <td><input type="text" id="permission" name="permission" placeholder="Permission" value={{ data.permission }} readonly></td>
+                <td>
+                    <select type="text" id="perm" name="perm" placeholder="Permission" >
+                        {% if data.permission == 'Admin' %}
+                            <option value={{ data.permission }}>{{ data.permission }}</option>
+                            <option value="SUDO">SUDO</option>
+                            <option value="User">User</option>
+                        {% elif data.permission == 'SUDO' %}
+                            <option value={{ data.permission }}>{{ data.permission }}</option>
+                            <option value="Admin">Admin</option>
+                            <option value="User">User</option>
+                        {% else %}
+                            <option value={{ data.permission }}>{{ data.permission }}</option>
+                            <option value="SUDO">SUDO</option>
+                            <option value="Admin">Admin</option>
+                        {% endif %}
+                    </select>
+                </td>
                 <td><button type="submit">Update</button></td>
             </form>
             <td>

@@ -19,7 +19,7 @@ My work items
             <form action="/updatemyworkitem" method="post"> 
                 <td><input type="text" id="work_id" name="work_id" placeholder="Work ID" value={{ work.work_id }} readonly></td>
                 <td><input type="text" id="title" name="title" placeholder="Title" value={{ work.title }}></td>
-                <td><input type="text" id="description" name="description" placeholder="Description" value={{ work.description }}></td>
+                <td><textarea type="text" id="description" name="description" placeholder="Description" rows="4" cols="50">{{ work.description }}</textarea></td>
                 <td><button type="submit">Update</button></td>
             </form>
             <td>

@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Blog entries
+{% endblock %}
+
+{% block body %}
+<h3>Blog editor</h3>
+
+<div>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Blog ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Text</th>
+            <th scope="col">Visible</th>
+            <th scope="col">Edit blog entry</th>
+        </tr>
+        </thead>
+        <tbody>
+
+            <!-- Construct the rest of courses here -->
+            {% for blog in blogData %}
+            <tr>
+                <td scope='row'>{{ blog.blog_id }}</td>
+                <td>{{ blog.title }}</td>
+                <td>{{ blog.text }}</td>
+                <td>{{ blog.visibility }}</td>
+                <td>
+                    <form action="{{ url_for('blogentry')}}" method="POST">
+                        <input type="hidden" name="blog_id" value="{{blog['blog_id']}}">
+                        <input type="hidden" name="title" value="{{blog['title']}}">
+                        <input type="hidden" name="text" value="{{blog['text']}}">
+                        <input type="hidden" name="visibility" value="{{blog['visibility']}}">
+                        <button>Change</button>
+                    </form>
+                </td>
+                
+            </tr>
+            {% endfor %}
+            </tbody>
+    </table>
+    <form action="{{url_for('addblogentry')}}">
+        <button>Add new blog entry</button>
+    </form>
+</div>
+{% endblock %}
