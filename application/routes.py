@@ -27,17 +27,8 @@ def blogentry():
     title       = request.form.get('title')
     text        = request.form.get('text')
     visibility  = request.form.get('visibility')
+    print(visibility)
     return render_template("blogentry.html", form=form, blog={"blog_id":id,"title":title,"text":text,"visibility":visibility})
-
-    if not session.get('permission') == 'Admin':
-        return redirect(url_for('index'))
-
-    form = MyWorkItem()
-
-    id = request.form.get('work_id')
-    title = request.form.get('title')
-    description = request.form.get('description')
-    return render_template("myworkitems.html", form=form, work={"blog_id":id,"title":title,"text":text,"visibility":visibility})
 
 @app.route("/addblogentry", methods=["GET", "POST"])    
 def addblogentry():    
@@ -67,17 +58,27 @@ def updateblogentry():
         # getting input with name = lname in HTML form  
         text    = request.form.get("text")  
         print(text)
-        #visibility = request.form.get("visibility")
+        visibility = request.form.get("visibility")
+        print(visibility)
+        if visibility is None:
+            visibility = False
+
 
         key     = request.form.get("blog_id")   
         key     = int(key)
-        print(key)
         blogitem = blog.objects(blog_id=key).get()
-        blogitem.update(
-            title = request.form.get("title"),
-            text = request.form.get("text")
-            #visibility = request.form.get("visibility")
-        )
+        if visibility is None:
+            blogitem.update(
+                title = request.form.get("title"),
+                text = request.form.get("text"),
+                visibility = False
+            )
+        else:
+            blogitem.update(
+                title = request.form.get("title"),
+                text = request.form.get("text"),
+                visibility = True
+            )
         blogitem.reload()
         flash("You successfully updated the blog entry!", "success")    
         return redirect(url_for('blogentries'))   

@@ -44,10 +44,10 @@ class AddMyWorkItem(FlaskForm):
 class AddBlogEntry(FlaskForm):
     title           = StringField("Titel", validators=[DataRequired(),Length(min=5,max=100)])
     text            = TextAreaField("Text", validators=[DataRequired(),Length(min=1,max=3000)])
-    visibility      = BooleanField("Visibility", )
+    visibility      = BooleanField("Visibility")
     submit          = SubmitField("Add new blog entry")
 
 class BlogEntry(FlaskForm):
     title           = StringField("Title")
     text            = StringField("Text")
-    visibility      = BooleanField("Visibility", validators=[DataRequired()])
+    visibility      = BooleanField("Visibility")
