@@ -29,11 +29,13 @@
         {% if session['username'] %}
             <a href="{{ url_for('user_settings') }}"></a><span class="user"></span>Welcome, {{ session['username'] }}</a></li>
         {% endif %}
-        {% if session['permission'] == 'Admin' %}
+        <!--
+            {% if session['permission'] == 'Admin' %}
             <p>
                 <button type="submit">Update this page</button>
             </p>
         {% endif %}
+        -->
         {% block body %}
         {% endblock %}
 
