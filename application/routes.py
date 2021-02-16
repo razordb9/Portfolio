@@ -3,23 +3,127 @@ from flask import render_template, redirect, flash, request, Response, json, ses
 from application.forms import LoginForm, RegisterForm, UpdateUserForm, MyWorkItem, AddMyWorkItem, AddBlogEntry, BlogEntry
 from application.models import work, User, blog
 
+
+##################################################
+#               Admin Console                    #
+##################################################
+
+@app.route("/adminconsole")
+def adminconsole():
+    if session.get('username'):
+        return redirect(url_for('Adminpage/adminlogin.html'))
+    else:
+        print(session.get('username'))
+    return render_template('Adminpage/console.html')
+
+@app.route("/admin", methods=["GET", "POST"])
+def login():
+    if session.get('username'):
+        return redirect(url_for('index'))
+    form = LoginForm()
+
+    if form.validate_on_submit():
+        email       = form.email.data
+        password    = form.password.data
+
+        user        = User.objects(email=email).first()
+        if user and user.get_password(password):
+            flash("You are successfully logged in!", "success")
+            session['user_id']      = user.user_id
+            session['username']     = user.first_name
+            session['lastname']     = user.last_name
+            session['email']        = user.email
+            session['permission']   = user.permission
+            return render_template('Adminpage/console.html')
+        else:
+            flash("Sorry, something went wrong", "danger")
+    return render_template('Adminpage/adminlogin.html', form=form, login=True, title='Login')
+
+@app.route("/logout")
+def logout():
+    session['user_id']=False
+    session.pop('username', None)
+    session.pop('lastname', None)
+    session.pop('email', None)
+    session.pop('permission', None)
+    flash("You are successfully logged out!", "warning")
+    return redirect(url_for('index'))
+
+@app.route("/adminpage")
+def adminpage():
+    if not session.get('permission') == 'Admin':
+        return redirect(url_for('login'))       #login is the function name which redirects to def login()
+    users = User.objects.all()
+    return render_template("Adminpage/adminpage.html", adminpage=True, userData=users)
+
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    if not session.get('permission') == 'Admin':
+        return redirect(url_for('login'))
+    form = RegisterForm()
+    if form.validate_on_submit():
+        user_id     = User.objects.count()
+        user_id     += 1
+
+        email       = form.email.data
+        password    = form.password.data
+        first_name  = form.first_name.data
+        last_name   = form.last_name.data
+        permission  = form.permission.data
+
+        user = User(user_id=user_id, email=email, first_name=first_name, last_name=last_name, permission=permission)
+        user.set_password(password)
+        user.save()
+        flash("You successfully created a new user!","success")
+        return redirect(url_for('adminpage'))
+    return render_template("Adminpage/register.html", title="Register", form=form, register=True)
+
+@app.route("/myprojects", methods=["GET", "POST"])
+def myprojects():
+    if not session.get('permission') == 'Admin':
+        return redirect(url_for('login'))
+    works = work.objects.order_by("work_id")
+    return render_template("Adminpage/myprojects.html", mywork=True, workData=works)
+
+@app.route("/blogentries")
+def blogentries():
+    if not session.get('permission') == 'Admin':
+        return redirect(url_for('login'))
+    blogs = blog.objects.order_by("blog_id")
+    return render_template("Adminpage/blogentries.html", blogentries=True, blogData=blogs) 
+   
+@app.route("/editpages")
+def editpages():
+    if not session.get('permission') == 'Admin':
+        return redirect(url_for('login'))
+    return render_template("Adminpage/editpages.html", editpages=True)
+
+
+##################################################
+
+##################################################
+#                Error Pages                     #
+##################################################
+@app.errorhandler(404)
+def page_not_found(e):
+    # note that we set the 404 status explicitly
+    return render_template('Errorpages/404.html'), 404
+
+##################################################
+
 @app.route("/")
 @app.route("/index")
 def index():
     workData = work.objects.all()
     return render_template("index.html", index=True, workData=workData)
 
-@app.route("/editpages")
-def editpages():
-    return render_template("editpages.html", editpages=True)
+#@app.route("/blog")
+#def blog():
+    #return render_template("blog.html", blog=True)
 
-@app.route("/blogentries")
-def blogentries():
-    if not session.get('permission') == 'Admin':
-        return redirect(url_for('index'))
-    blogs = blog.objects.order_by("work_id")
-    return render_template("blogentries.html", blogentries=True, blogData=blogs) 
-   
+
+
+
 @app.route("/blogentry", methods=["GET", "POST"])
 def blogentry():
     if not session.get('permission') == 'Admin':
@@ -178,74 +282,9 @@ def updateuser():
 def about():
     return render_template("about.html", about=True)
 
-@app.route("/adminpage")
-def adminpage():
-    if not session.get('permission') == 'Admin':
-        return redirect(url_for('index'))
-    users = User.objects.all()
-    return render_template("adminpage.html", adminpage=True, userData=users)
 
-@app.route("/login", methods=["GET", "POST"])
-def login():
-    if session.get('username'):
-        return redirect(url_for('index'))
-    form = LoginForm()
 
-    if form.validate_on_submit():
-        email       = form.email.data
-        password    = form.password.data
 
-        user        = User.objects(email=email).first()
-        if user and user.get_password(password):
-            flash("You are successfully logged in!", "success")
-            session['user_id']      = user.user_id
-            session['username']     = user.first_name
-            session['lastname']     = user.last_name
-            session['email']        = user.email
-            session['permission']   = user.permission
-            return redirect("/index")
-        else:
-            flash("Sorry, something went wrong", "danger")
-    return render_template("login.html", form=form, login=True, title='Login')
-
-@app.route("/logout")
-def logout():
-    session['user_id']=False
-    session.pop('username', None)
-    session.pop('lastname', None)
-    session.pop('email', None)
-    session.pop('permission', None)
-    flash("You are successfully logged out!", "warning")
-    return redirect(url_for('index'))
-
-@app.route("/register", methods=["GET", "POST"])
-def register():
-    if not session.get('permission') == 'Admin':
-        return redirect(url_for('index'))
-    form = RegisterForm()
-    if form.validate_on_submit():
-        user_id     = User.objects.count()
-        user_id     += 1
-
-        email       = form.email.data
-        password    = form.password.data
-        first_name  = form.first_name.data
-        last_name   = form.last_name.data
-        permission  = form.permission.data
-
-        user = User(user_id=user_id, email=email, first_name=first_name, last_name=last_name, permission=permission)
-        user.set_password(password)
-        user.save()
-        flash("You successfully created a new user!","success")
-        return redirect(url_for('adminpage'))
-    return render_template("register.html", title="Register", form=form, register=True)
-
-@app.route("/mywork", methods=["GET", "POST"])
-def mywork():
-    if not session.get('permission') == 'Admin':
-        return redirect(url_for('index'))
-    works = work.objects.order_by("work_id")
-    return render_template("mywork.html", mywork=True, workData=works)
 
 @app.route("/myworkitems", methods=["GET", "POST"])
 def myworkitems():

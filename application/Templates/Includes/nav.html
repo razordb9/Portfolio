@@ -5,20 +5,6 @@
         </div>
         <ul class="nav navbar-nav">
             <li class="{%if about %}active{% endif %}"><a href="{{ url_for('about') }}" class="nav-link active">About</a></li>
-            {%if session['permission'] == 'Admin'%}
-            <li class="dropdown" id="accountmenu">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Administration<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li class="{% if adminpage %}active{% endif %}"><a href="{{ url_for('adminpage') }}">User overview</a></li>
-                    <li class="{% if register %}active{% endif %}"><a href="{{ url_for('register') }}">Register user</a></li>
-                    <li class="divider"></li>
-                    <li class="{% if mywork %}active{% endif %}"><a href="{{ url_for('mywork') }}">My work</a></li>
-                    <li class="{% if blogentries %}active{% endif %}"><a href="{{ url_for('blogentries') }}"">Blog</a></li>
-                    <li class="{% if blogentries %}active{% endif %}"><a href="{{ url_for('editpages') }}"">Edit pages</a></li>
-                </ul>
-            </li>
-            {% endif %}
-        </ul>
         {% if not session['username'] %}
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{ url_for('login') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
@@ -27,6 +13,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{ url_for('logout') }}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
             </ul>
-        {% endif %}
+        {% endif %}    
+        
     </div>
 </nav>
