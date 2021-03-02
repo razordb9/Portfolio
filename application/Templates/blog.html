@@ -6,4 +6,17 @@ My Blog
 
 {% block body%}
     <h3>My Blog</h3>
+
+    <div class="container-fluid bg-3 text-center">    
+        <h3>Some of my Work</h3><br>
+        <div class="row">
+            {% for data in blogData %}
+            <div class="col-sm-12">
+                <p>{{ data.title }}</p>
+                <p>{{ data.text }}</p>
+            </div>
+            <div class="clearfix">&nbsp;</div>
+            {% endfor %}
+        </div>
+    </div><br>
 {% endblock %}

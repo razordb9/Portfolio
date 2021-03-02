@@ -1,72 +1,41 @@
 /* git token 1ed8733ebe1e89c4ed83bd1d1f02523b4ac546fd */
-footer {
-    text-align: center;
-    height: 50px;
-    color: black;
-    padding: 5px;
-    margin-top: 10px;
-    bottom: 0px;
+/*
+    .class = select all elements with class="class"
+    #id = select the element with id="id"
+
+*/
+#wrapper {
+    min-height: 100%;
+    position: relative;
 }
+#footer {
+    width: 100%;
+    height: 80px;
+    position:absolute;
+    bottom: 0;
+
+}
+#content {
+    padding-bottom: 100px;
+}
+
 .navbar {
-    margin-bottom: 0;
     border-radius: 0;
 }
-body {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    min-height: 100vh;
-    position: relative;
-    margin: 0;
-    /*padding-bottom: 100px;*/
-    box-sizing: border-box;
-}
 
-li {
-    display: inline;
-    padding: 5px;
-}
-
-a {
-    text-decoration: none;
-    color: #9d9d9d;
-}
-
-a:hover { color : blue;}
-
-#login {
-    width: 800px;
-    margin: 0 auto;
-}
-.container-row {
-    margin: 1% 25% 1% 25%;
-    width:50%;
-    height: 70%;
-}
 .row {
     margin:0;
 }
-.fa {
-    padding: 20px;
-    font-size: 30px;
-    width: 50px;
+
+#workItems {
+    border-style: solid;
+    border-color: darkgray;
+    margin: 5px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+#workItems p {
     text-align: center;
-    text-decoration: none;
-    margin: 5px 2px;
-}
-.fa-linkedin {
-    background: #007bb5;
-    color: white;
-}
-.fa-twitter {
-    background: #55ACEE;
-    color: white;
-}
-.fa-instagram {
-    background: #fbad50 ;
-    color: white;
-}
-.fa-github {
-    background: black;
-    color: white;
 }
 
 .user {

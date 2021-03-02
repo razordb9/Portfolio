@@ -10,16 +10,14 @@ from application.models import work, User, blog
 
 @app.route("/adminconsole")
 def adminconsole():
-    if session.get('username'):
-        return redirect(url_for('Adminpage/adminlogin.html'))
-    else:
-        print(session.get('username'))
+    if not session.get('permission') == 'Admin':
+        return redirect(url_for('login'))
     return render_template('Adminpage/console.html')
 
 @app.route("/admin", methods=["GET", "POST"])
 def login():
     if session.get('username'):
-        return redirect(url_for('index'))
+        return redirect(url_for('adminconsole'))
     form = LoginForm()
 
     if form.validate_on_submit():
@@ -47,7 +45,7 @@ def logout():
     session.pop('email', None)
     session.pop('permission', None)
     flash("You are successfully logged out!", "warning")
-    return redirect(url_for('index'))
+    return redirect(url_for('login'))
 
 @app.route("/adminpage")
 def adminpage():
@@ -89,41 +87,9 @@ def myprojects():
 def blogentries():
     if not session.get('permission') == 'Admin':
         return redirect(url_for('login'))
-    blogs = blog.objects.order_by("blog_id")
+    blogs = blog.objects.all()
     return render_template("Adminpage/blogentries.html", blogentries=True, blogData=blogs) 
    
-@app.route("/editpages")
-def editpages():
-    if not session.get('permission') == 'Admin':
-        return redirect(url_for('login'))
-    return render_template("Adminpage/editpages.html", editpages=True)
-
-
-##################################################
-
-##################################################
-#                Error Pages                     #
-##################################################
-@app.errorhandler(404)
-def page_not_found(e):
-    # note that we set the 404 status explicitly
-    return render_template('Errorpages/404.html'), 404
-
-##################################################
-
-@app.route("/")
-@app.route("/index")
-def index():
-    workData = work.objects.all()
-    return render_template("index.html", index=True, workData=workData)
-
-#@app.route("/blog")
-#def blog():
-    #return render_template("blog.html", blog=True)
-
-
-
-
 @app.route("/blogentry", methods=["GET", "POST"])
 def blogentry():
     if not session.get('permission') == 'Admin':
@@ -136,26 +102,7 @@ def blogentry():
     text        = request.form.get('text')
     visibility  = request.form.get('visibility')
     print(visibility)
-    return render_template("blogentry.html", form=form, blog={"blog_id":id,"title":title,"text":text,"visibility":visibility})
-
-@app.route("/addblogentry", methods=["GET", "POST"])    
-def addblogentry():    
-    if not session.get('permission') == 'Admin':
-        return redirect(url_for('index'))
-    form = AddBlogEntry()
-    if form.validate_on_submit():
-        blog_id     = blog.objects.count()
-        blog_id    += 1
-
-        title       = form.title.data
-        text        = form.text.data
-        visibility  = form.visibility.data
-
-        blogs = blog(blog_id=blog_id, title=title, text=text, visibility=visibility)
-        blogs.save()
-        flash("You successfully created a new blog entry","success")
-        return redirect(url_for('blogentries'))
-    return render_template("addblogentry.html", title="Add new blog entry", form=form, addblogentry=True)
+    return render_template("Adminpage/blogentry.html", form=form, blog={"blog_id":id,"title":title,"text":text,"visibility":visibility})
 
 @app.route("/updateblogentry", methods=["GET", "POST"])    
 def updateblogentry(): 
@@ -168,9 +115,6 @@ def updateblogentry():
         print(text)
         visibility  = request.form.get("visibility")
         print(visibility)
-        if visibility is None:
-            visibility = False
-
 
         key         = request.form.get("blog_id")   
         key         = int(key)
@@ -194,6 +138,25 @@ def updateblogentry():
         print("failed")
     return render_template("blogentries.html")
 
+@app.route("/addblogentry", methods=["GET", "POST"])    
+def addblogentry():    
+    if not session.get('permission') == 'Admin':
+        return redirect(url_for('index'))
+    form = AddBlogEntry()
+    if form.validate_on_submit():
+        blog_id     = blog.objects.count()
+        blog_id    += 1
+
+        title       = form.title.data
+        text        = form.text.data
+        visibility  = form.visibility.data
+
+        blogs = blog(blog_id=blog_id, title=title, text=text, visibility=visibility)
+        blogs.save()
+        flash("You successfully created a new blog entry","success")
+        return redirect(url_for('blogentries'))
+    return render_template("addblogentry.html", title="Add new blog entry", form=form, addblogentry=True)
+
 @app.route("/removeblogentry", methods=["GET", "POST"])    
 def removeblogentry():    
     try:
@@ -205,6 +168,109 @@ def removeblogentry():
     except:
         flash("You couldn't removed the blog entry!", "danger")    
         return redirect(url_for('blogentries')) 
+
+@app.route("/editpages")
+def editpages():
+    if not session.get('permission') == 'Admin':
+        return redirect(url_for('login'))
+    return render_template("Adminpage/editpages.html", editpages=True)
+
+@app.route("/myworkitems", methods=["GET", "POST"])
+def myworkitems():
+    if not session.get('permission') == 'Admin':
+        return redirect(url_for('index'))
+
+    form        = MyWorkItem()
+
+    id          = request.form.get('work_id')
+    title       = request.form.get('title')
+    description = request.form.get('description')
+    return render_template("myworkitems.html", form=form, work={"work_id":id,"title":title,"description":description})
+
+@app.route("/removemyworkitem", methods=["GET", "POST"])    
+def removemyworkitem():    
+    try:
+        key = request.form.get("work_id")    
+        key = int(key)
+        work.objects(work_id=key).delete()
+        flash("You successfully removed the work item!", "success")    
+        return redirect(url_for('mywork'))   
+    except:
+        flash("You couldn't removed the work item!", "danger")    
+        return redirect(url_for('myworkitem'))  
+
+@app.route("/updatemyworkitem", methods=["GET", "POST"])    
+def updatemyworkitem(): 
+    if request.method == "POST": 
+        # getting input with name = fname in HTML form 
+        title       = request.form.get("title") 
+        # getting input with name = lname in HTML form  
+        description = request.form.get("description")  
+
+        key         = request.form.get("work_id")    
+        key         = int(key)
+
+        workitem    = work.objects(work_id=key).get()
+        workitem.update(
+            title       = request.form.get("title"),
+            description = request.form.get("description")
+        )
+        workitem.reload()
+        flash("You successfully updated the work item!", "success")    
+        return redirect(url_for('myprojects'))   
+    else:
+        print("failed")
+    return render_template("myworkitem.html")
+
+@app.route("/addmyworkitem", methods=["GET", "POST"])    
+def addmyworkitem():    
+    if not session.get('permission') == 'Admin':
+        return redirect(url_for('index'))
+    form = AddMyWorkItem()
+    if form.validate_on_submit():
+        work_id     = work.objects.count()
+        work_id     += 1
+
+        title       = form.title.data
+        description = form.description.data
+      
+
+        works       = work(work_id=work_id, title=title, description=description)
+        works.save()
+        flash("You successfully created a new user!","success")
+        return redirect(url_for('mywork'))
+    return render_template("addmyworkitem.html", title="Add work Item", form=form, addmyworkitem=True)
+
+##################################################
+
+##################################################
+#                Error Pages                     #
+##################################################
+
+@app.errorhandler(404)
+def page_not_found(e):
+    # note that we set the 404 status explicitly
+    return render_template('Errorpages/404.html'), 404
+
+##################################################
+
+
+##################################################
+#                 Main Pages                     #
+##################################################
+
+@app.route("/")
+@app.route("/index")
+def index():
+    workData = work.objects.all()
+    return render_template("index.html", index=True, workData=workData)
+
+@app.route("/myblog")
+def myblog():
+    blogData = blog.objects.all()
+    print(blogData)
+    return render_template("blog.html", blog=True, blogData=blogData)
+
 
 @app.route("/user_settings", methods=["GET", "POST"])
 def user_settings():
@@ -286,68 +352,3 @@ def about():
 
 
 
-@app.route("/myworkitems", methods=["GET", "POST"])
-def myworkitems():
-    if not session.get('permission') == 'Admin':
-        return redirect(url_for('index'))
-
-    form        = MyWorkItem()
-
-    id          = request.form.get('work_id')
-    title       = request.form.get('title')
-    description = request.form.get('description')
-    return render_template("myworkitems.html", form=form, work={"work_id":id,"title":title,"description":description})
-
-@app.route("/removemyworkitem", methods=["GET", "POST"])    
-def removemyworkitem():    
-    try:
-        key = request.form.get("work_id")    
-        key = int(key)
-        work.objects(work_id=key).delete()
-        flash("You successfully removed the work item!", "success")    
-        return redirect(url_for('mywork'))   
-    except:
-        flash("You couldn't removed the work item!", "danger")    
-        return redirect(url_for('myworkitem'))  
-
-@app.route("/updatemyworkitem", methods=["GET", "POST"])    
-def updatemyworkitem(): 
-    if request.method == "POST": 
-        # getting input with name = fname in HTML form 
-        title       = request.form.get("title") 
-        # getting input with name = lname in HTML form  
-        description = request.form.get("description")  
-
-        key         = request.form.get("work_id")    
-        key         = int(key)
-
-        workitem    = work.objects(work_id=key).get()
-        workitem.update(
-            title       = request.form.get("title"),
-            description = request.form.get("description")
-        )
-        workitem.reload()
-        flash("You successfully updated the work item!", "success")    
-        return redirect(url_for('mywork'))   
-    else:
-        print("failed")
-    return render_template("myworkitem.html")
-
-@app.route("/addmyworkitem", methods=["GET", "POST"])    
-def addmyworkitem():    
-    if not session.get('permission') == 'Admin':
-        return redirect(url_for('index'))
-    form = AddMyWorkItem()
-    if form.validate_on_submit():
-        work_id     = work.objects.count()
-        work_id     += 1
-
-        title       = form.title.data
-        description = form.description.data
-      
-
-        works       = work(work_id=work_id, title=title, description=description)
-        works.save()
-        flash("You successfully created a new user!","success")
-        return redirect(url_for('mywork'))
-    return render_template("addmyworkitem.html", title="Add work Item", form=form, addmyworkitem=True)

@@ -11,18 +11,25 @@ My Portfolio
         <h1>Welcome to my Portfolio.</h1>
     </div>
 </div>
-<div class="container-fluid bg-3 text-center">    
+<div class="container-fluid">    
     <h3>Some of my Work</h3><br>
-    <div class="row">
-        {% for data in workData %}
-        <div class="col-sm-3">
-            <p>{{ data.title }}</p>
-            <p>{{ data.description }}</p>
-            <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-        </div>
-        {% endfor %}
-    </div>
+    {% for data in workData %}
+        {% if loop.index0 % 3 == 0 %}  
+            <div class="row">
+        {% endif %}
+                
+                <div class="col-lg-4" id="workItems">
+                    <p>index is {{ loop.index }}</p>
+                    <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+                    <p>{{ data.title }}</p>
+                    <p>{{ data.description }}</p>
+                </div> 
+        {% if loop.index0 % 3 == 2 or loop.last %}    
+            </div>
+        {% endif %}
+    {% endfor %}
 </div><br>
+
 
 {% endblock %}
 
