@@ -2,39 +2,39 @@
 /*
     .class = select all elements with class="class"
     #id = select the element with id="id"
-
 */
+#main-footer {
+    text-align: center;
+    height: 30px;
+    background-color: #eee;
+}
 #wrapper {
     min-height: 100%;
     position: relative;
 }
-#footer {
+/*#footer {
     width: 100%;
     height: 80px;
     position:absolute;
     bottom: 0;
 
-}
+}*/
 #content {
     padding-bottom: 100px;
-}
-
-.navbar {
-    border-radius: 0;
 }
 
 .row {
     margin:0;
 }
 
-#workItems {
+/*.col-sm-4 {
     border-style: solid;
     border-color: darkgray;
-    margin: 5px;
+    margin: auto;
     padding-left: 0px;
     padding-right: 0px;
-}
-#workItems p {
+}*/
+.col-sm-4 p {
     text-align: center;
 }
 
@@ -45,4 +45,10 @@
     font-size: 25px;
     right: 10em;
     top: 2em;
+}
+
+
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
 }
