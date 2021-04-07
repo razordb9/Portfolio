@@ -1,0 +1,38 @@
+
+    {% extends "layout.html" %}
+   
+    {% block body %}
+    
+    <div class="container">
+        <form name="addblogentry" action="" method="post" novalidate>
+        <fieldset class="form-group">
+            <legend>{{title}}</legend>     
+            {{ form.hidden_tag() }}       
+                <p> {{ form.title.label }}</br>
+                    {{ form.title }}
+                    {% for error in form.title.errors %}
+                        <span class="error-message">{{ error }}</span>
+                    {% endfor %}
+                </p>
+            
+                <p> {{ form.text.label }}</br>
+                    {{ form.text }}
+                    {% for error in form.text.errors %}
+                        <span class="error-message">{{ error }}</span>
+                    {% endfor %}
+                </p>
+                <p> {{ form.visibility.label }}</br>
+                    {{ form.visibility }}
+                    {% for error in form.visibility.errors %}
+                        <span class="error-message">{{ error }}</span>
+                    {% endfor %}
+                </p>
+            
+                <p> 
+                    {{ form.submit() }}
+                </p>
+            
+        </fieldset>
+        </form>
+    </div>
+    {% endblock %}

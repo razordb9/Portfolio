@@ -3,6 +3,9 @@
     .class = select all elements with class="class"
     #id = select the element with id="id"
 */
+.blog-text {
+    text-align: justify;
+}
 #main-footer {
     text-align: center;
     height: 30px;

@@ -155,7 +155,7 @@ def addblogentry():
         blogs.save()
         flash("You successfully created a new blog entry","success")
         return redirect(url_for('blogentries'))
-    return render_template("addblogentry.html", title="Add new blog entry", form=form, addblogentry=True)
+    return render_template("Adminpage/addblogentry.html", title="Add new blog entry", form=form, addblogentry=True)
 
 @app.route("/removeblogentry", methods=["GET", "POST"])    
 def removeblogentry():    
@@ -239,7 +239,7 @@ def addmyworkitem():
         works.save()
         flash("You successfully created a new user!","success")
         return redirect(url_for('mywork'))
-    return render_template("addmyworkitem.html", title="Add work Item", form=form, addmyworkitem=True)
+    return render_template("Adminpage/addmyworkitem.html", title="Add work Item", form=form, addmyworkitem=True)
 
 ##################################################
 
@@ -278,7 +278,10 @@ def index():
 @app.route("/myblog")
 def myblog():
     blogData = blog.objects.all()
-    print(blogData)
+    for data in blogData:
+        print(data.blog_id)
+        print(data.title)
+    #print(blogData)
     return render_template("blog.html", blog=True, blogData=blogData)
 
 
