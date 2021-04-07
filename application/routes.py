@@ -273,15 +273,12 @@ def test():
 @app.route("/index")
 def index():
     workData = work.objects.all()
-    return render_template("index.html", index=True, workData=workData)
+    blogData = blog.objects().order_by('-blog_id').limit(1)        
+    return render_template("index.html", index=True, workData=workData, blogData=blogData)
 
 @app.route("/myblog")
 def myblog():
     blogData = blog.objects.all()
-    for data in blogData:
-        print(data.blog_id)
-        print(data.title)
-    #print(blogData)
     return render_template("blog.html", blog=True, blogData=blogData)
 
 
