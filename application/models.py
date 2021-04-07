@@ -5,6 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 class blog(db.Document):
     blog_id     =   db.IntField( max_length=10, unique=True )
     title       =   db.StringField( max_length=100 )
+    hashTag     =   db.StringField( max_length=4096 )
     text        =   db.StringField( max_length=4096 )
     visibility  =   db.BooleanField()
 

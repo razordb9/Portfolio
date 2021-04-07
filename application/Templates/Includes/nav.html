@@ -4,6 +4,9 @@
             <a class="navbar-brand" href="{{ url_for('index') }}">Portfolio</a>
         </div>
         <ul class="nav navbar-nav">
+            <li class="{%if blog %}active{% endif %}"><a href="{{ url_for('mainpage_template') }}" class="nav-link active">Work</a></li>
+        </ul> 
+        <ul class="nav navbar-nav">
             <li class="{%if blog %}active{% endif %}"><a href="{{ url_for('myblog') }}" class="nav-link active">Blog</a></li>
         </ul>  
         <ul class="nav navbar-nav">

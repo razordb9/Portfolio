@@ -148,10 +148,11 @@ def addblogentry():
         blog_id    += 1
 
         title       = form.title.data
+        hashTag     = form.hashTag.data
         text        = form.text.data
         visibility  = form.visibility.data
 
-        blogs = blog(blog_id=blog_id, title=title, text=text, visibility=visibility)
+        blogs = blog(blog_id=blog_id, title=title, hashTag=hashTag, text=text, visibility=visibility)
         blogs.save()
         flash("You successfully created a new blog entry","success")
         return redirect(url_for('blogentries'))
@@ -273,14 +274,17 @@ def test():
 @app.route("/index")
 def index():
     workData = work.objects.all()
-    blogData = blog.objects().order_by('-blog_id').limit(1)        
+    blogData = blog.objects().order_by('-blog_id').limit(2)        
     return render_template("index.html", index=True, workData=workData, blogData=blogData)
 
 @app.route("/myblog")
 def myblog():
-    blogData = blog.objects.all()
+    blogData = blog.objects.order_by('-blog_id')
     return render_template("blog.html", blog=True, blogData=blogData)
 
+@app.route("/mainpage_template")
+def mainpage_template():
+    return render_template("mainpage_template.html", editpages=True)
 
 @app.route("/user_settings", methods=["GET", "POST"])
 def user_settings():

@@ -43,7 +43,8 @@ class AddMyWorkItem(FlaskForm):
 
 class AddBlogEntry(FlaskForm):
     title           = StringField("Titel", validators=[DataRequired(),Length(min=5,max=100)])
-    text            = TextAreaField("Text", validators=[DataRequired(),Length(min=1,max=3000)])
+    text            = TextAreaField("Text", validators=[DataRequired(),Length(min=1,max=4096)])
+    hashTag         = StringField("Hashtag", validators=[DataRequired(),Length(min=1,max=4096)])
     visibility      = BooleanField("Visibility")
     submit          = SubmitField("Add new blog entry")
 
