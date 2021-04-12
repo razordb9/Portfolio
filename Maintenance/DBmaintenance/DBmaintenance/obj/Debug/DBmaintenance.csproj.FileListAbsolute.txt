@@ -22,3 +22,5 @@ D:\Projects\Portfolio\Maintenance\DBmaintenance\DBmaintenance\obj\Debug\DBmainte
 D:\Projects\Portfolio\Maintenance\DBmaintenance\DBmaintenance\obj\Debug\DBmaintenance.csproj.CopyComplete
 D:\Projects\Portfolio\Maintenance\DBmaintenance\DBmaintenance\obj\Debug\DBmaintenance.exe
 D:\Projects\Portfolio\Maintenance\DBmaintenance\DBmaintenance\obj\Debug\DBmaintenance.pdb
+D:\Projects\Portfolio\Maintenance\DBmaintenance\DBmaintenance\obj\Debug\DBmaintenance.GUI.resources
+D:\Projects\Portfolio\Maintenance\DBmaintenance\DBmaintenance\obj\Debug\DBmaintenance.csproj.GenerateResource.cache
