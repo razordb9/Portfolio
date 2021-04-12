@@ -24,7 +24,7 @@ namespace DBmaintenance
 
         private void GUI_Load(object sender, EventArgs e)
         {
-
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void mnuFileExit_Click(object sender, EventArgs e)
@@ -32,8 +32,13 @@ namespace DBmaintenance
             Application.Exit();
         }
 
+        Settings settings;
+
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            settings = new Settings();
+            settings.MdiParent = this;
+            settings.Show();
 
         }
 

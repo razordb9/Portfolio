@@ -24,3 +24,4 @@ D:\Projects\Portfolio\Maintenance\DBmaintenance\DBmaintenance\obj\Release\DBmain
 D:\Projects\Portfolio\Maintenance\DBmaintenance\DBmaintenance\obj\Release\DBmaintenance.exe
 D:\Projects\Portfolio\Maintenance\DBmaintenance\DBmaintenance\obj\Release\DBmaintenance.pdb
 D:\Projects\Portfolio\Maintenance\DBmaintenance\DBmaintenance\obj\Release\DBmaintenance.csprojAssemblyReference.cache
+D:\Projects\Portfolio\Maintenance\DBmaintenance\DBmaintenance\obj\Release\DBmaintenance.Settings.resources

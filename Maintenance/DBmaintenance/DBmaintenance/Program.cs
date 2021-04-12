@@ -50,10 +50,11 @@ namespace DBmaintenance
 
             //documents.ForEach(doc => { Console.WriteLine(doc.ToString()); });
 
-
+           
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new GUI());
+           
         }
     }
 }
