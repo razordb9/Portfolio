@@ -41,6 +41,7 @@ namespace DBmaintenance
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnSettingsSave = new System.Windows.Forms.Button();
             this.btnSettingsCancel = new System.Windows.Forms.Button();
+            this.lblSettingsOutput = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPageDBConnection.SuspendLayout();
             this.SuspendLayout();
@@ -57,6 +58,7 @@ namespace DBmaintenance
             // 
             // tabPageDBConnection
             // 
+            this.tabPageDBConnection.Controls.Add(this.lblSettingsOutput);
             this.tabPageDBConnection.Controls.Add(this.btnSettingsConnectionTest);
             this.tabPageDBConnection.Controls.Add(this.txtSettingsPort);
             this.tabPageDBConnection.Controls.Add(this.lblDBPort);
@@ -162,6 +164,14 @@ namespace DBmaintenance
             this.btnSettingsCancel.UseVisualStyleBackColor = true;
             this.btnSettingsCancel.Click += new System.EventHandler(this.btnSettingsCancel_Click);
             // 
+            // lblSettingsOutput
+            // 
+            this.lblSettingsOutput.AutoSize = true;
+            this.lblSettingsOutput.Location = new System.Drawing.Point(44, 94);
+            this.lblSettingsOutput.Name = "lblSettingsOutput";
+            this.lblSettingsOutput.Size = new System.Drawing.Size(0, 13);
+            this.lblSettingsOutput.TabIndex = 5;
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -195,5 +205,6 @@ namespace DBmaintenance
         private System.Windows.Forms.TextBox txtSettingsPort;
         private System.Windows.Forms.Label lblDBPort;
         private System.Windows.Forms.Button btnSettingsConnectionTest;
+        private System.Windows.Forms.Label lblSettingsOutput;
     }
 }

@@ -59,11 +59,14 @@ namespace DBmaintenance
             {
                 string dbHost = txtSettingsDBHost.Text;
                 string dbPort = txtSettingsPort.Text;
-                string dbConnect = "\"mongodb://" + dbHost + "\"";
+                string dbConnect = "mongodb://localhost:27017";
                 MessageBox.Show(dbConnect);
                 //MongoClient dbClient = new MongoClient(dbConnect);
-                MongoClient dbClient = new MongoClient("mongodb://127.0.0.1");
-                var dbList = dbClient.ListDatabases().ToList();
+                var dbClient = new MongoClient("mongodb://127.0.0.1");
+                var db = dbClient.GetDatabase("PortFolio");
+                var collection = db.GetCollection<BsonDocument>("Permission");
+
+                MongoCol
 
                 //foreach (char db in dbList)
                 //{
