@@ -1,0 +1,9 @@
+:root{
+    --card-width: 300px;
+    --card-height: 50px;
+    --card-background: red;
+}
+
+footer {
+    text-align: center;
+}
