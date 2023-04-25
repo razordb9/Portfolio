@@ -4,6 +4,9 @@
 </script>
 
 <html data-theme="dark" />
+<head>
+  <script src="https://kit.fontawesome.com/e2903f0fe1.js" crossorigin="anonymous"></script>
+</head>
 <header />
 <main class="container">
   <nav>
