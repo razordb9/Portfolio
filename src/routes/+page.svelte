@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Project from '$lib/Components/projects.svele';
+    import Project from '$lib/Components/projects.svelte';
 </script>
 <main class="container">
 
