@@ -3,9 +3,10 @@
 
 </script>
 
-<div class="grid">
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>
-    <div>4</div>
-</div>
+<article id="article">
+    <h2>First project</h2>
+    <p>
+        This is my first ever project I will do for my portfolio page.
+    </p>
+    <footer>Created May, 2023</footer>
+</article>  
