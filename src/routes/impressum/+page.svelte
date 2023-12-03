@@ -1,4 +1,4 @@
-<main class="container">
+<main class="impressum">
     <h1>Impressum</h1>
     <p><strong>Angaben gemäß § 5 TMG</strong></p>
     
@@ -12,7 +12,7 @@
     <p>
         <strong>Kontakt</strong><br>
         Telefon: +43 681 105 99 261 <br>
-        E-Mail: office@thz.at
+        E-Mail: office@hzs.at
     </p>
     <p>
         <strong>Redaktionell verantwortlich</strong>
