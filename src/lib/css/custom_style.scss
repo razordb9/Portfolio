@@ -1,0 +1,134 @@
+/* color variables */
+$nav_primary: darkred;
+$nav_secondary: white;
+
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+  
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Navigation bar */
+.navbar {
+    width: 100%;
+    background-color: $nav_primary;
+    padding: 10px;
+    margin-top:15px;
+    padding-left: 30px;
+    padding-right: 10px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    display: inline-block;
+}
+.nav-links{
+    list-style: none;
+    display: flex;
+}
+
+.nav-item a {
+    display: inline-block;
+    padding: 10px 15px; 
+    text-decoration: none;
+    color: $nav_secondary;   
+}
+
+.nav-item:hover {
+    background-color: $nav_secondary;
+}
+  
+.nav-item:hover a {
+    color: $nav_primary;
+}
+  
+.logo img {
+    width: 175px;
+    vertical-align: middle;
+}
+
+/* Impressum */
+.impressum {
+    margin: auto;
+    width: 50%;
+    padding: 10px;   
+}
+
+/* Projects */
+
+.project {
+    margin: auto;
+    width: 80%;
+    padding: 10px;   
+}
+
+.project-container {
+    display: felx;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-radius: 5px;
+    margin-top: 100px;
+    padding: 10px;
+    /* gap: 100px; */
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    border: 2px solid grey;
+    padding: 10px;
+    justify-content: space-between;
+    /* column-gap: 100px; */
+
+}
+
+.project-card img {
+    width: 25%;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+/* Footer */
+
+footer {
+    text-align: center;
+} 
+
+/* page heading + text */
+
+#Page_heading {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.Page_text {
+    margin-top:15px; 
+    text-align: center;
+}
+
+/* media query */
+
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        row-gap: 30px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+
+

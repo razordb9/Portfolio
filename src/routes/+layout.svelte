@@ -3,6 +3,7 @@
   // import "$lib/css/pico.min.css";
   import Footer from "$lib/Components/footer.svelte";
   import Navigation from "$lib/Components/navigation.svelte";
+  import { routes } from "$lib/Components/routes";
 </script>
 
 <html lang="en"/>
@@ -11,9 +12,12 @@
 </head>
 <header />
 <main class="container">
-  <Navigation />
+  <Navigation routes={routes}>
+
+  </Navigation>
 
   <slot />
+  <Footer />
+
 </main>
 
-<Footer />
