@@ -21,6 +21,7 @@
 	"type": "module",
 	"dependencies": {
 		"@picocss/pico": "^1.5.10",
+		"sass": "^1.69.5",
 		"scss": "^0.2.4"
 	}
 }
