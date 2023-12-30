@@ -1,5 +1,5 @@
-<footer>
-    <small>
+<div id="footer">
+    <p class="footer_content">
         Copyright &copy; Thomas HUDSON-ZAUSSNIG •
         <a href="/impressum">Impressum</a>
         <a href="/kontakt">Kontakt</a>
@@ -10,5 +10,5 @@
         <a href="https://www.instagram.com/tsonga_64/"><img class="footer_img" src="/instagram.svg" alt="Instagram"/></a>
         |
         <a href="https://twitter.com/ThomasZaussnig"><img class="footer_img"src="/twitter.svg" alt="Twitter"/></a>
-    </small>
-</footer>
+    </p>
+</div>

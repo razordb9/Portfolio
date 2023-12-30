@@ -11,13 +11,14 @@
   <!-- <script src="https://kit.fontawesome.com/e2903f0fe1.js" crossorigin="anonymous"></script> -->
 </head>
 <header />
-<main class="container">
-  <Navigation routes={routes}>
+<div id="page-container">
+  <div id="content-wrap">
+    <Navigation routes={routes}>
 
-  </Navigation>
-
-  <slot />
-  <Footer />
-
-</main>
+    </Navigation>
+  
+    <slot />
+    <Footer />  
+  </div>
+</div>
 
