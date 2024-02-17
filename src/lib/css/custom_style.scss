@@ -94,7 +94,7 @@ body {
     justify-content: center;
     align-items: left; 
     flex-direction: column;
-
+    // background-color: red;
 }
 
 .agb li {
@@ -111,9 +111,6 @@ body {
     margin-bottom: 1rem;
 }
 
-
-.agb-list{
-}
 /* Projects */
 
 .project {
@@ -190,10 +187,13 @@ body {
     margin-top: 50px;
     text-align: center;
 }
+
+/* About me */
+
 .about_me {
     display: flex;
     background: #f1f1f1;    
-    margin: 10px 30px;
+    margin: 2rem 30px;
 }
 
 .about_me > div {

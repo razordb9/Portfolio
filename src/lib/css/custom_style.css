@@ -182,10 +182,11 @@ body {
   text-align: center;
 }
 
+/* About me */
 .about_me {
   display: flex;
   background: #f1f1f1;
-  margin: 10px 30px;
+  margin: 2rem 30px;
 }
 
 .about_me > div {

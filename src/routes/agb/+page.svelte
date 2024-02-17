@@ -30,9 +30,6 @@
         <br>
         Diese Vereinbarung tritt mit dem heutigen Datum in Kraft.
         <br>
-        
-        
-        
         <br>
         In gewissen Bereichen dieser Website haben Nutzer die Möglichkeit, Kommentare zu Zwecken des Meinungs- und Informationsaustausches zu hinterlassen. Entsprechende Nutzerkommentare werden vor ihrer Veröffentlichung auf der Website von Hudson-Zaußnig Solutions nicht überprüft, gefiltert, bearbeitet oder verbreitet. Nutzerkommentare spiegeln ausschließlich die persönliche Meinung des jeweiligen Verfassers wider und entsprechen nicht den Ansichten und Überzeugungen von Hudson-Zaußnig Solutions, den rechtlichen Vertretern und/oder Vertriebspartnern. Sofern rechtlich nicht anders geregelt, übernimmt Hudson-Zaußnig Solutions keinerlei Haftung für Nutzerkommentare oder sich eventuell infolge der Erscheinung entsprechender Nutzerkommentare auf der Website ergebende Schadensansprüche und/oder Kosten.
         <br><br>
@@ -114,15 +111,12 @@
         Haftungsausschluss:<br>
         Soweit dies nach geltendem Recht zulässig ist, schließen wir alle Zusicherungen, Gewährleistungen und Bedingungen im Zusammenhang mit unserer Website und der Nutzung dieser Website aus). Nichts in diesem Haftungsausschluss soll:
         <br>    
-        <div class="agb-list">
-            <ul>
-                <li>unsere oder Ihre Haftung für Tod oder Körperverletzung infolge von Fahrlässigkeit einschränken oder ausschließen;</li>
-                <li>unsere oder Ihre Haftung für Betrug oder betrügerische Falschdarstellung einschränken oder ausschließen;</li>
-                <li>unsere oder Ihre Haftung in einer Weise beschränken, die nach geltendem Recht nicht zulässig ist oder</li>
-                <li>irgendeine unserer oder Ihrer Haftungen ausschließen, die nach geltendem Recht nicht ausgeschlossen werden können.</li>
-            </ul>
-        </div>
-        
+        <ul>
+            <li>unsere oder Ihre Haftung für Tod oder Körperverletzung infolge von Fahrlässigkeit einschränken oder ausschließen;</li>
+            <li>unsere oder Ihre Haftung für Betrug oder betrügerische Falschdarstellung einschränken oder ausschließen;</li>
+            <li>unsere oder Ihre Haftung in einer Weise beschränken, die nach geltendem Recht nicht zulässig ist oder</li>
+            <li>irgendeine unserer oder Ihrer Haftungen ausschließen, die nach geltendem Recht nicht ausgeschlossen werden können.</li>
+        </ul>
         <br><br>
         Die in diesem Abschnitt und an anderer Stelle in diesem Haftungsausschluss dargelegten Haftungsbeschränkungen und -ausschlüsse: (a) unterliegen dem vorhergehenden Absatz und (b) gelten für alle Haftungen, die sich aus dem Haftungsausschluss oder in Bezug auf den Gegenstand dieses Haftungsausschlusses ergeben, einschließlich Haftungen aus Vertrag, unerlaubter Handlung und aufgrund der Verletzung gesetzlicher Pflichten.
         <br><br>
