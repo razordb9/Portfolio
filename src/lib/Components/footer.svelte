@@ -1,7 +1,8 @@
 <div id="footer">
     <div class="footer_content">
         Copyright &copy; Thomas HUDSON-ZAUSSNIG •
-        <a href="/impressum">Impressum</a>
+        <a href="/impressum">Impressum •</a>
+        <a href="/agb">AGB •</a>
         <a href="/kontakt">Kontakt</a>
         <a href="https://github.com/razordb9"><img class="footer_img" src="/github.svg" alt="Github"/></a>
         |

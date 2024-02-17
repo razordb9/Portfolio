@@ -85,12 +85,40 @@ body {
     padding: 10px;   
 }
 
+/* AGB */
+.agb {
+    display: flex;
+    margin: auto;
+    width: 70%;
+    padding: 10px;  
+    justify-content: center;
+    align-items: left; 
+    flex-direction: column;
+
+}
+
+.agb li {
+    list-style-position: inside;
+    list-style-type: circle;
+    word-wrap: break-all;
+    // margin-left: 1.5rem;
+}
+.agb-container {
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+
+.agb-list{
+}
 /* Projects */
 
 .project {
     margin: auto;
     width: 90vw;
-    // padding: 10px;   
 }
 
 .project-container {

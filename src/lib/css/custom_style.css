@@ -83,6 +83,31 @@ body {
   padding: 10px;
 }
 
+/* AGB */
+.agb {
+  display: flex;
+  margin: auto;
+  width: 70%;
+  padding: 10px;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+}
+
+.agb li {
+  list-style-position: inside;
+  list-style-type: circle;
+  word-wrap: break-all;
+}
+
+.agb-container {
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
 /* Projects */
 .project {
   margin: auto;
