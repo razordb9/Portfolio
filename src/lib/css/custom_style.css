@@ -127,16 +127,18 @@ body {
   padding-bottom: 1vh;
   position: absolute;
   bottom: 0;
-  height: 3.5rem;
+  height: 4rem;
   text-align: center;
   text-transform: uppercase;
   background: darkred;
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer_content {
   display: block;
-  vertical-align: auto;
 }
 
 .footer_content a {
