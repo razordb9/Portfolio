@@ -1,8 +1,8 @@
 <main class="agb">
-    <h1>Allgemeine Geschäftsbedingungen</h1>
-    
     <div class="agb-container">
-
+        <h1 >AGB</h1>
+        <h2>Allgemeine Geschäftsbedingungen</h2>
+        <br>
         Herzlich willkommen bei hzs.at!<br>
         <br>
         Diese Allgemeinen Geschäftsbedingungen enthalten die Regeln und Bestimmungen für die Nutzung von Hudson-Zaußnig Solutions's Website unter www.hzs.at. <br>

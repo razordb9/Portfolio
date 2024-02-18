@@ -100,12 +100,18 @@ body {
   word-wrap: break-all;
 }
 
+.agb-container h1, h2 {
+  text-align: center;
+}
+
 .agb-container {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   margin-top: 2rem;
   flex-wrap: wrap;
   border-radius: 5px;
-  margin-bottom: 1rem;
+  text-align: justify;
+  -webkit-hyphens: auto;
+          hyphens: auto;
 }
 
 /* Projects */
@@ -186,7 +192,7 @@ body {
 .about_me {
   display: flex;
   background: #f1f1f1;
-  margin: 2rem 30px;
+  margin: 2gitrem 30px;
 }
 
 .about_me > div {
