@@ -79,8 +79,16 @@ body {
 /* Impressum */
 .impressum {
   margin: auto;
-  width: 50%;
+  width: 70%;
   padding: 10px;
+}
+
+.impressum-container {
+  margin-top: 2rem;
+}
+
+.impressum-container h1, h2 {
+  text-align: center;
 }
 
 /* AGB */
@@ -151,6 +159,7 @@ body {
   margin-left: 5vw;
   margin-right: 5vw;
   margin-top: 1em;
+  margin-bottom: 2rem;
   width: 90vw;
   padding-left: 5vw;
   padding-right: 5vw;
@@ -191,20 +200,22 @@ body {
 /* About me */
 .about_me {
   display: flex;
-  background: #f1f1f1;
-  margin: 2gitrem 30px;
+  flex-flow: row wrap;
+  margin: auto;
+  justify-content: space-around;
+  width: 70%;
+  margin-bottom: 3rem;
+  margin-top: 3rem;
+  list-style: none;
 }
 
-.about_me > div {
-  margin: 10px;
-  padding: 20px;
-  text-align: center;
-}
-
-.about_me_text p {
-  flex-grow: 2;
+.about_me_item {
+  padding: 5px;
+  width: 50%;
+  text-align: left;
   text-align: justify;
-  text-justify: inter-word;
+  -webkit-hyphens: auto;
+          hyphens: auto;
 }
 
 .Page_text p {
@@ -212,7 +223,7 @@ body {
   text-justify: inter-word;
 }
 
-.about_me > div > img {
+.about_me > img {
   width: 300px;
 }
 
