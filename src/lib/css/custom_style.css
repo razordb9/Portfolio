@@ -1,4 +1,4 @@
-/* color variables */
+/* default variables */
 html {
   box-sizing: border-box;
 }
@@ -15,17 +15,18 @@ body {
 
 /* Main page layout */
 #page-container {
+  flex: 1;
   position: relative;
   min-height: 100vh;
 }
 
 #content-wrap {
+  display: flex;
   padding-bottom: 2.5rem;
 }
 
 /* Error page */
 .error-container {
-  display: flex;
   justify-content: center;
   flex-wrap: wrap;
   border-radius: 5px;
@@ -76,7 +77,12 @@ body {
   vertical-align: middle;
 }
 
-/* Impressum */
+/* project page */
+.project-page-container {
+  margin: auto;
+}
+
+/* Impressum page */
 .impressum {
   margin: auto;
   width: 70%;
@@ -87,13 +93,8 @@ body {
   margin-top: 2rem;
 }
 
-.impressum-container h1, h2 {
-  text-align: center;
-}
-
-/* AGB */
+/* AGB page */
 .agb {
-  display: flex;
   margin: auto;
   width: 70%;
   padding: 10px;
@@ -125,27 +126,17 @@ body {
 /* Projects */
 .project {
   margin: auto;
-  width: 90vw;
-}
-
-.project-container {
-  display: flex;
+  width: 70%;
   justify-content: center;
-  flex-wrap: wrap;
-  border-radius: 5px;
-  margin-top: 100px;
-  margin-bottom: 2.5rem;
-  /* gap: 100px; */
+  flex-direction: column;
 }
 
 .project-card {
-  display: flex;
   flex-direction: column;
   margin-top: 20px;
   border: 2px solid grey;
   padding: 10px;
   justify-content: space-between;
-  width: 90vw;
 }
 
 .project-card img {
@@ -155,51 +146,38 @@ body {
 }
 
 /* Footer */
-#footer {
-  margin-left: 5vw;
-  margin-right: 5vw;
-  margin-top: 1em;
-  margin-bottom: 2rem;
-  width: 90vw;
-  padding-left: 5vw;
-  padding-right: 5vw;
-  padding-top: 1vh;
-  padding-bottom: 1vh;
-  position: absolute;
-  bottom: 0;
-  height: 4rem;
-  text-align: center;
-  text-transform: uppercase;
-  background: darkred;
+#footer-content {
+  background-color: darkred;
   color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
+  padding: 20px;
+  width: 70%;
+  margin: auto;
 }
 
-.footer_content {
-  display: block;
-}
-
-.footer_content a {
+#footer-content a {
   text-decoration: none;
   color: white;
 }
 
-.footer_img {
+.footer-img {
   margin: auto;
   vertical-align: middle;
 }
 
 /* page heading + text */
-#Page_heading {
+.page-heading {
   margin-top: 50px;
   text-align: center;
 }
 
+.page-text p {
+  text-align: center;
+  text-justify: inter-word;
+}
+
 /* About me */
-.about_me {
-  display: flex;
+.about-me {
   flex-flow: row wrap;
   margin: auto;
   justify-content: space-around;
@@ -209,7 +187,7 @@ body {
   list-style: none;
 }
 
-.about_me_item {
+.about-me-item {
   padding: 5px;
   width: 50%;
   text-align: left;
@@ -218,12 +196,7 @@ body {
           hyphens: auto;
 }
 
-.Page_text p {
-  text-align: center;
-  text-justify: inter-word;
-}
-
-.about_me > img {
+.about-me > img {
   width: 300px;
 }
 

@@ -1,8 +1,10 @@
 <script lang="ts">
     import Project from '$lib/Components/projects.svelte';
 </script>
-<h1 id="Page_heading">Projects</h1>
-<div class="Page_text">
-    <p>Here you can find all the projects which I already finished or which are in progress</p>
+<div class="project-page-container">
+    <h1 class="page-heading">Projects</h1>
+    <div class="page-text">
+        <p>Here you can find all the projects which I already finished or which are in progress</p>
+    </div>
+    <Project />
 </div>
-<Project />

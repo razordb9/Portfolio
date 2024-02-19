@@ -1,6 +1,6 @@
 <main class="impressum">
     <div class="impressum-container">
-        <h1>Impressum</h1>
+        <h1 class="Page_heading">Impressum</h1>
         <p><strong>Angaben gemäß § 5 TMG</strong></p>
         
         <span>
