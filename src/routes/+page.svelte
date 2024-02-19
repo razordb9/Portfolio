@@ -1,13 +1,15 @@
 <script lang="ts">
     import Project from '$lib/Components/projects.svelte';
 </script>
-<main class="project">
+<div class="main-page">
 
     <h1 class="page-heading">Hello and welcome!</h1>
     <div class="page-text">
         <p>On this page you will find some of my projects</p>
     </div>
+</div>
+<div class="project">
     <Project/>
-</main>
+</div>
 
 

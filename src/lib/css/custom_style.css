@@ -23,6 +23,12 @@ body {
 #content-wrap {
   display: flex;
   padding-bottom: 2.5rem;
+  flex-direction: column;
+}
+
+/* main page */
+.main-page {
+  flex-direction: column;
 }
 
 /* Error page */

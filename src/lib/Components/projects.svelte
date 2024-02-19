@@ -1,6 +1,5 @@
 <script lang="ts">
-
-
+    
 </script>
 <div class="project-container">
     <div class="project-card">
