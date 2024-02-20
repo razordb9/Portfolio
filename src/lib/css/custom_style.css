@@ -29,6 +29,8 @@ body {
 /* main page */
 .main-page {
   flex-direction: column;
+  margin: auto;
+  width: 70%;
 }
 
 /* Error page */
@@ -97,6 +99,61 @@ body {
 
 .impressum-container {
   margin-top: 2rem;
+}
+
+/* blog page */
+.blog {
+  display: inline;
+  margin: auto;
+  width: 80%;
+  margin-bottom: 3rem;
+}
+
+.blog-container {
+  margin-top: 3rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: spa ce-around;
+  gap: 10px 20px;
+}
+
+.blog-item {
+  flex: 0 0 300px;
+  height: 300px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid;
+  border-radius: 5px;
+  margin-top: 1rem;
+}
+
+.blog-item div {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.blog-item img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.blog-item-creator {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+
+.blog-item a {
+  text-decoration: none;
+  font-size: large;
+  color: black;
+}
+
+.blog-item a:hover {
+  text-decoration: underline;
 }
 
 /* AGB page */
@@ -195,7 +252,6 @@ body {
 
 .about-me-item {
   padding: 5px;
-  width: 50%;
   text-align: left;
   text-align: justify;
   -webkit-hyphens: auto;
