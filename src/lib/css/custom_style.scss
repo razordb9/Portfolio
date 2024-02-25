@@ -110,7 +110,7 @@ body {
     display: inline;
     // background: green;
     margin: auto;
-    width: 80%;
+    width: 70%;
     margin-bottom: 3rem;
 
 }
@@ -120,7 +120,7 @@ body {
     // background: orange;
     display: flex;
     flex-flow: row wrap;
-    justify-content: spa    ce-around   ;
+    justify-content: space-around;
     gap: 10px 20px;
 
 }
@@ -133,7 +133,7 @@ body {
     border: 2px solid;
     border-radius: 5px;
     margin-top: 1rem;
-
+    justify-content: space-around;
 }
 
 .blog-item div {
@@ -159,9 +159,12 @@ body {
     color: black;
 }
 
-.blog-item a:hover {
-    text-decoration: underline;
+.blog-item button {
+    align-items: center;
+    justify-content: center;
+    width: 30%;
 }
+
 
 /* AGB page */
 .agb {
