@@ -1,61 +1,60 @@
 <script lang="ts">
-  import { RMark } from '$lib/index';
-  import { onMount } from 'svelte';
-  
-  const sampleText = 
-  `
-  # Header1
-  
-  ## Header 2 
+    import { RMark } from '$lib/index';
+    import { onMount } from 'svelte';
 
-  ### Header 3
-  
-  #### Header 4
-  
-  ##### Header 5
-  
-  ###### Header 6
+    let text;
+    let items:any = [];
 
-  **Bold**
-  *Italic*
+    const sampleText = 
+    `
+    # Header1
+    
+    ## Header 2 
 
-  [Link](https://github.com/tlylt/rmark)
+    ### Header 3
+    
+    #### Header 4
+    
+    ##### Header 5
+    
+    ###### Header 6
 
-  This is **Bold** and this is *Italic*.
+    **Bold**
+    *Italic*
 
-  __ This is Boold toooo __ 
+    [Link](https://github.com/tlylt/rmark)
 
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ornare erat facilisis odio viverra gravida. Phasellus in finibus libero. Duis eget pellentesque arcu, ut lobortis mi. Praesent vitae nulla sed leo dignissim finibus eget hendrerit arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vestibulum enim nibh, eu pellentesque tellus fermentum venenatis. Nam consectetur sem a magna mattis, sed luctus purus tincidunt. Nam faucibus tellus sed ligula molestie pulvinar. Mauris facilisis felis ex, eu tempor justo commodo et. Aenean lobortis dignissim diam eget tempor.
+    This is **Bold** and this is *Italic*.
 
-  Sed pellentesque nulla sit amet tincidunt sagittis. Phasellus eget justo nulla. Cras nisi odio, lobortis nec ante eget, commodo euismod
-  turpis. Cras id orci dolor. Etiam auctor, nisl luctus volutpat lacinia, turpis orci euismod magna, pharetra eleifend massa metus aliquet
-  `;
-  //![Image](https://raw.githubusercontent.com/tlylt/rmark/main/static/logo.svg)
-  
+    __ This is Boold toooo __ 
 
-  let isClient = false;
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ornare erat facilisis odio viverra gravida. Phasellus in finibus libero. Duis eget pellentesque arcu, ut lobortis mi. Praesent vitae nulla sed leo dignissim finibus eget hendrerit arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vestibulum enim nibh, eu pellentesque tellus fermentum venenatis. Nam consectetur sem a magna mattis, sed luctus purus tincidunt. Nam faucibus tellus sed ligula molestie pulvinar. Mauris facilisis felis ex, eu tempor justo commodo et. Aenean lobortis dignissim diam eget tempor.
 
-  onMount(() => {
-    const page = document.getElementById("page");
-    page.innerHTML = new RMark().render(sampleText);
-  });
+    Sed pellentesque nulla sit amet tincidunt sagittis. Phasellus eget justo nulla. Cras nisi odio, lobortis nec ante eget, commodo euismod
+    turpis. Cras id orci dolor. Etiam auctor, nisl luctus volutpat lacinia, turpis orci euismod magna, pharetra eleifend massa metus aliquet
+    `;
+    //![Image](https://raw.githubusercontent.com/tlylt/rmark/main/static/logo.svg)
+    
 
-//   if (isClient) {
-//     console.log(testing)
-//     // const page = document.getElementById("page");
-//     // page.innerHTML = new RMark().render(sampleText);
-//   }
+    let isClient = false;
 
+    onMount(() => {
+        const page = document.getElementById("page");
+        page.innerHTML = new RMark().render(loadFile());
+        // loadFile();
+    });
+
+    const loadFile = async () => {
+        const response = await fetch('/blogarticles/summary.md');
+        text = await response.text();
+        items = text.split('\n\n');
+    }
 
 </script>
 
-{#if isClient}
-  <!-- Client-side specific code -->
-  <script>
-    // Access the document object here
-    console.log(document);
-  </script>
-{/if}
+{#each items as item}
+<p>{item}</p>
+{/each}
 
 <h1 class="page-heading">just for testing</h1>
 <div id="page"></div>
