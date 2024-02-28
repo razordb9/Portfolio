@@ -31,8 +31,7 @@ const defaultRules: Rule[] = [
         new Pattern(/([^\n]+\n?)/g, '\n<p>$1</p>\n'),
     ]),
 ];
-// console.log("Output Rule: ")
-// console.log(Rule);
+
 
 export class RMark {
     private rules: Rule[] = defaultRules;
