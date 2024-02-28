@@ -3,12 +3,12 @@ import { Pattern } from './pattern';
 
 const defaultRules: Rule[] = [
     new Rule('header', [
-        new Pattern(/^#{6}\s?([^\n]+)/gm, '<h6>$1</h6>'),
-        new Pattern(/^#{5}\s?([^\n]+)/gm, '<h5>$1</h5>'),
-        new Pattern(/^#{4}\s?([^\n]+)/gm, '<h4>$1</h4>'),
-        new Pattern(/^#{3}\s?([^\n]+)/gm, '<h3>$1</h3>'),
-        new Pattern(/^#{2}\s?([^\n]+)/gm, '<h2>$1</h2>'),
-        new Pattern(/^#{1}\s?([^\n]+)/gm, '<h1>$1</h1>'),
+        new Pattern(/#{6}\s?([^\n]+)/g, '<h6>$1</h6>'),
+        new Pattern(/#{5}\s?([^\n]+)/g, '<h5>$1</h5>'),
+        new Pattern(/#{4}\s?([^\n]+)/g, '<h4>$1</h4>'),
+        new Pattern(/#{3}\s?([^\n]+)/g, '<h3>$1</h3>'),
+        new Pattern(/#{2}\s?([^\n]+)/g, '<h2>$1</h2>'),
+        new Pattern(/#{1}\s?([^\n]+)/g, '<h1>$1</h1>'),
     ]),
     new Rule('bold', [
         new Pattern(/\*\*\s?([^\n]+)\*\*/g, '<b>$1</b>'),
@@ -31,6 +31,8 @@ const defaultRules: Rule[] = [
         new Pattern(/([^\n]+\n?)/g, '\n<p>$1</p>\n'),
     ]),
 ];
+// console.log("Output Rule: ")
+// console.log(Rule);
 
 export class RMark {
     private rules: Rule[] = defaultRules;
