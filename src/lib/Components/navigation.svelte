@@ -11,13 +11,24 @@
   export let routes: Routes;
 </script>
 <nav class="navbar">
-    <a href="/" class="logo">
-        <img src="/Logo.png" alt="Hudson-Zaußnig Solutions">
-    </a>
-    <ul class="nav-links">
+  <a href="/" class="logo">
+      <img src="/Logo.png" alt="Hudson-Zaußnig Solutions">
+  </a>
+  <ul class="nav-links">
+    {#each routes as route}
+      <li class="nav-item"><a href="{route.path}">{route.name}</a></li>
+    {/each}
+  </ul>
+  <div class="nav-burger-menu">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <ul class="nav-burger-menu-links">
       {#each routes as route}
         <li class="nav-item"><a href="{route.path}">{route.name}</a></li>
       {/each}
+    </ul> 
+  </div>
+  
 
-    </ul>
 </nav>

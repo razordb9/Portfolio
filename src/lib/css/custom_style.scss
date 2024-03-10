@@ -82,7 +82,11 @@ body {
 .nav-item:hover a {
     color: $nav_primary;
 }
-  
+
+.nav-burger-menu {
+    display: none;
+}
+
 .logo img {
     width: 175px;
     vertical-align: middle;
@@ -134,7 +138,7 @@ body {
     border-radius: 5px;
     margin-top: 1rem;
     justify-content: space-around;
-}
+}   
 
 .blog-item div {
     margin-top: 1rem;
@@ -160,8 +164,7 @@ body {
 }
 
 .blog-item button {
-    align-items: center;
-    justify-content: center;
+   
     width: 30%;
 }
 
@@ -276,18 +279,46 @@ width: 300px;
 
 @media (max-width: 600px) {
     .navbar {
-        flex-direction: column;
+        // flex-direction: column;
         row-gap: 30px;
     }
 
     .nav-links {
+        display: none;
         flex-direction: column;
         text-align: center;
+    }
+
+    .nav-burger-menu {
+        display: inline-block;
+        position: relative;
+    }
+
+    .nav-burger-menu-links {
+        display: none;
+        background-color: $nav_primary;
+        position: absolute;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        right: 0; /* Align dropdown to the right */
+        list-style-type: none;
+    }
+
+    .nav-burger-menu:hover .nav-burger-menu-links {
+        display: block;
     }
 
     .about_me {
         flex-direction: column;
         align-items: center;
+    }
+
+    .line {
+        width: 25px;
+        height: 3px;
+        background-color: #fff;
+        margin: 3px;
     }
 }
 
