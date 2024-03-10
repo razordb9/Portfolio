@@ -98,6 +98,11 @@ body {
   margin-top: 2rem;
 }
 
+.impressum-container a {
+  text-decoration: none;
+  color: black;
+}
+
 /* blog page */
 .blog {
   display: inline;
@@ -229,7 +234,7 @@ body {
 
 /* page heading + text */
 .page-heading {
-  margin-top: 50px;
+  margin-top: 1rem;
   text-align: center;
 }
 

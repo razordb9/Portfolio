@@ -1,9 +1,11 @@
 <!-- <h1 id="Page_heading">Hallo wie gehts</h1> -->
-<main class="about-me">
-    <h1 class="page-heading"></h1>
+    
+<main>
+    <h1 class="page-heading">Hello it's me</h1>
     <div class="page-text">
-        <p></p>
+    <p></p>
     </div>
+    <div class="about-me">
         <p class="about-me-item">Mein Name ist Thomas Hudson-Zaußnig, bin 36 Jahre alt, verheiratet
             und Vater von zwei liebevollen Töchtern.
             Ich bin gelernter IT Techniker und Absolvent der Abend HTL-Mössingerstraße Jahrgang 2012.
@@ -12,4 +14,5 @@
             selbst renovieren.  
         </p>
         <img class="about-me-item" src="/Zaussnig.jpg" alt="Thomas Zaussnig"/>
+    </div>
 </main>

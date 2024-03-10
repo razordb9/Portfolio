@@ -12,8 +12,11 @@
         
         <p>
             <strong>Kontakt</strong><br>
-            Telefon: +43 681 105 99 261 <br>
-            E-Mail: office@hzs.at
+            Telefon: 
+            <a href="tel:+43 681 105 99 261">+43 681 105 99 261</a><br>
+            Email
+            <a href="mailto:office@hzs.at">office@hzs.at</a>
+            
         </p>
         <p>
             <strong>Redaktionell verantwortlich</strong>
