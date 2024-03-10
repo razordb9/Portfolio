@@ -3,10 +3,6 @@ title: How to create Web design business
 date: '2024-01-01'
 ---
 
-# Projectname: How to create Web design business
-
-
-
 ## Create a Business plan
 
 * Company description
