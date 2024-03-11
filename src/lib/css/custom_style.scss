@@ -119,8 +119,8 @@ body {
 .blog {
     display: inline;
     // background: green;
-    // margin: auto;
-    // width: 70%;
+    margin: auto;
+    width: 70%;
     margin-bottom: 1rem;
 }
 
@@ -131,8 +131,8 @@ body {
     flex-wrap: wrap;
     justify-content: space-around;
     gap: 10px 20px;
-    margin-left: 1rem;
-    margin-right: 1rem;
+    // margin-left: 1rem;
+    // margin-right: 1rem;
 }
 .blog-item {
     flex: 1 1 45%;
