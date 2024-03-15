@@ -133,10 +133,15 @@ body {
   padding: 5px;
   display: flex;
   flex-direction: column;
-  border: 2px solid;
   border-radius: 5px;
   margin-top: 1rem;
   justify-content: space-around;
+  transition: background-color 2s ease-out;
+}
+
+.blog-item:hover {
+  background: darkred;
+  color: white;
 }
 
 .blog-item div {
@@ -222,7 +227,7 @@ body {
 
 /* Footer */
 footer {
-  position: sticky;
+  position: relative;
   bottom: 0;
 }
 
