@@ -105,7 +105,6 @@ body {
 .impressum-container {
   margin-top: 2rem;
 }
-
 .impressum-container a {
   text-decoration: none;
   color: black;
@@ -138,17 +137,21 @@ body {
   justify-content: space-around;
   transition: background-color 2s ease-out;
 }
-
-.blog-item:hover {
-  background: darkred;
-  color: white;
-}
-
 .blog-item div {
   margin-top: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.blog-item a {
+  text-decoration: none;
+  font-size: large;
+  color: black;
+}
+
+.blog-item:hover {
+  background: darkred;
+  color: white;
 }
 
 .blog-item-img {
@@ -161,12 +164,6 @@ body {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-}
-
-.blog-item a {
-  text-decoration: none;
-  font-size: large;
-  color: black;
 }
 
 .blog-item button {
@@ -182,15 +179,10 @@ body {
   align-items: left;
   flex-direction: column;
 }
-
 .agb li {
   list-style-position: inside;
   list-style-type: circle;
   word-wrap: break-all;
-}
-
-.agb-container h1, h2 {
-  text-align: center;
 }
 
 .agb-container {
@@ -201,6 +193,9 @@ body {
   text-align: justify;
   -webkit-hyphens: auto;
           hyphens: auto;
+}
+.agb-container h1, .agb-container h2 {
+  text-align: center;
 }
 
 /* Projects */
@@ -218,7 +213,6 @@ body {
   padding: 10px;
   justify-content: space-between;
 }
-
 .project-card img {
   width: 25%;
   vertical-align: middle;
@@ -239,7 +233,6 @@ footer {
   width: 70%;
   margin: auto;
 }
-
 #footer-content a {
   text-decoration: none;
   color: white;
