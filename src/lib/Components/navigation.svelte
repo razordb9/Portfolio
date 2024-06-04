@@ -130,9 +130,9 @@
       list-style-type: none;
 
       .nav-item {
-        margin-bottom:20px;
+        margin-bottom:5px;
         padding: 20px;
-        background-color: green;
+        // background-color: green;
 
         a{
           text-decoration: none;
