@@ -13,3 +13,19 @@
         <a href="https://twitter.com/ThomasZaussnig" target="_blank"><img class="footer-img"src="/twitter.svg" alt="Twitter"/></a>
     </div>
 </footer>
+
+<style lang="scss">
+    footer {
+        width: 70%;
+        margin: 30px auto;
+        text-align: center;
+        background-color: var(--nav_primary);
+        color: var(--nav_secondary);
+        padding: 20px;
+        
+        a {
+            text-decoration: none;
+            color: var(--nav_secondary);
+        }
+    }
+</style>

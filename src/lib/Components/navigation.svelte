@@ -9,6 +9,7 @@
   var open = false;
   const openBurgerMenue = (e:MouseEvent) => {
     console.log(e.target)
+    console.log(open)
     open = !open;
   }
 
@@ -25,7 +26,8 @@
       <li class="nav-item"><a href="{route.path}">{route.name}</a></li>
     {/each}
   </ul>
-  <!-- <div class="nav-burger-menu" on:click={openBurgerMenue}>
+   <!-- svelte-ignore a11y-click-events-have-key-events -->
+   <div class="nav-burger-menu" on:click={openBurgerMenue}> 
     <div class="line"></div>
     <div class="line"></div>
     <div class="line"></div>
@@ -34,7 +36,7 @@
         <li class="nav-item"><a href="{route.path}">{route.name}</a></li>
       {/each}
     </ul> 
-  </div> -->
+  </div>
   
 
 </nav>
@@ -60,7 +62,9 @@
       }
     }
   }
-
+  .nav-burger-menu {
+      display: none;
+    }
   .nav-links {
     width: auto;
     height: 100%;
@@ -100,6 +104,56 @@
   }
 
   @media (max-width: 600px) {
-    
+    .nav-links {
+      display: none;
+    }
+
+    .nav-burger-menu .mobile {
+      display: block;
+    }
+    .nav-burger-menu {
+      margin-right:10px;
+      display: inline-block;
+      position: relative;
+    }
+
+    .nav-burger-menu-links {
+      display: none;
+      height: 220px;
+      width: auto;
+      background-color: var(--nav_primary);
+      position: absolute;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      right: 0; /* Align dropdown to the right */
+      list-style-type: none;
+
+      .nav-item {
+        margin-bottom:20px;
+        padding: 20px;
+        background-color: green;
+
+        a{
+          text-decoration: none;
+          border-radius: 5px;
+          padding-inline: 1rem;
+          color: var(--nav_secondary);
+        }
+        &:hover {
+          a{
+            background-color: var(--nav_secondary);
+            color: var(--nav_primary);
+          }
+        } 
+      }
+    }
+
+    .line {
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+      margin: 3px;
+    }
   }
 </style>
