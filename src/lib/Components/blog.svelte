@@ -12,18 +12,15 @@
     <a href={path}>{title}</a>
     <div>
         <!-- <img class="blog-item-creator" src="/Thomas.jpg" alt="Thomas Hudson-Zaußnig"> -->
-        <span>By</span>
-        Thomas HZ 
-        <span> {published}</span>
     </div>
+    <span>By</span>
+    Thomas HZ 
+    <span> {published}</span>
 </div>
+
 <style lang="scss">
     .blog-card {
-        // background-color: blue;
-        border: 2px solid var(--nav_primary);
-        border-radius: 5px;
-        padding: 5px;
-        margin: 20px auto;
+        margin-bottom: 20px;
 
         .blog-card-title {
             font-size:30px;
@@ -31,6 +28,15 @@
         a {
             text-decoration: none;
             color: black
+        }
+        a:hover{
+            color: var(--nav_primary);
+            text-decoration: underline;
+        }
+
+        img {
+            max-width: 250px;
+            width: 100%;
         }
     }
 </style>

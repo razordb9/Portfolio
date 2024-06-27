@@ -16,3 +16,15 @@
         <img class="about-me-item" src="/Zaussnig.jpg" alt="Thomas Zaussnig"/>
     </div>
 </main>
+
+
+<style lang="scss">
+    .about-me {
+        img{
+            margin-top: 10px;
+            max-width: 300px;
+            width: 100%;
+        }
+    }
+
+</style>
