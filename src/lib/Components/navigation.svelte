@@ -19,7 +19,7 @@
 </script>
 <nav class="navbar">
   <a href="/" class="logo">
-      <img src="/Logo.png" alt="Hudson-Zaußnig Solutions" width="250" height="auto">
+      <img src="/Logo.png" alt="Thomas Hudson-Zaussnig" width="250" height="auto">
   </a>
   <ul class="nav-links">
     {#each routes as route}
@@ -87,7 +87,6 @@
         height: 100%;
         text-decoration: none;
         transition: all 200ms ease-in-out;
-        // background-color: green;
         color: var(--nav_secondary);
         border-radius: 5px;
         background-color: rgb(119, 0, 0);
