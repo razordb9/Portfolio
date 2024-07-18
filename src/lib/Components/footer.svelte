@@ -15,13 +15,13 @@
 
 <style lang="scss">
     footer {
-        width: 70%;
-        margin: 30px auto;
-        text-align: end;
+        position: relative;
+        width: 100%;
+        text-align: center;
         background-color: var(--nav_primary);
         color: var(--nav_secondary);
         padding: 20px;
-        
+        height: 80px;
         a {
             text-decoration: none;
             color: var(--nav_secondary);
@@ -31,9 +31,10 @@
         }
 
         span{
+            margin-top: 10px;
             display: flex;
             flex-direction: row;
-            justify-content: flex-end;
+            justify-content: center;
             gap: 10px;
         }
     }

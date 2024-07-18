@@ -1,4 +1,4 @@
-<main class="impressum">
+<div class="impressum">
     <div class="impressum-container">
         <h1 class="page-heading">Impressum</h1>
         <p><strong>Angaben gemäß § 5 TMG</strong></p>
@@ -34,4 +34,4 @@
             <br>
         </p>
     </div>
-</main>
+</div>

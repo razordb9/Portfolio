@@ -1,9 +1,12 @@
-html {
+html, body {
     box-sizing: border-box;
     --nav_primary: darkred;
     --nav_secondary: white;
     $width: 70%;
     font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    // height: 100%;
 }
 
 *, *::before, *::after {
@@ -12,18 +15,6 @@ html {
     padding: 0;
 }
   
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    display: flex;
-    flex-direction: column;
-}
-
-main {
-    // display: flex;
-    width: 70%;
-    margin: 40px auto;
-    // background-color: green;
-}
 
 .page-heading {
     text-align: center;
