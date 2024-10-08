@@ -3,27 +3,40 @@
 </script>
 
 <article>
-    <h1>{data.title}</h1>
-    <p>Published: {data.date}</p>
-    <svelte:component this={data.content} />
+    <div class="article-header">
+        <h1>{data.title}</h1>
+        <p class="date">Published: {data.date}</p>
+    </div>
+    <div class="article-text">
+        <svelte:component this={data.content} />
+    </div>
 </article>
 
 <style lang="scss">
+    
     ul {
         list-style-type: circle;
     }
     article {
-        // background-color: yellow;
-        margin: auto 20px;
+        // background-color: lightgray;
+        padding: 20px;
+
+        .article-header {
+            height: 100px;
+            background-color: lightgrey;
+            text-align: center;
+
+            h1 {
+                font-size: 35px;
+            }
+        }
+
+        .article-text {
+            margin-top: 20px;
+        }
     }
 
     code {
         background-color: lightgray;
-    }
-
-    pre {
-        background-color: yellow;
-        list-style-type: none;
-    
     }
 </style>

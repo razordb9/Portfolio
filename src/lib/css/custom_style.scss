@@ -12,10 +12,15 @@ html, body {
 *, *::before, *::after {
     box-sizing: inherit;
     margin: 0;
-    padding: 0;
+    // padding: 0;
 }
   
 .page-heading {
+    // background-color: yellow;
     text-align: center;
     margin-bottom: 20px;
+}
+
+main {
+    margin: 40px 100px;
 }

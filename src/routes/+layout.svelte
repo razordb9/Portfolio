@@ -5,11 +5,12 @@
   import { routes } from "$lib/Components/routes";
 </script>
 
+<header>
+  <Navigation routes={routes}>
+  </Navigation>
+</header>
 <main class="app">
-  <header>
-    <Navigation routes={routes}>
-    </Navigation>
-  </header>
+  
   <slot />
 </main>
 <Footer /> 
