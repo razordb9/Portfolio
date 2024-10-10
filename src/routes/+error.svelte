@@ -2,12 +2,20 @@
     import { page } from '$app/stores';
 </script>
 
-<main class="container">
-    <div class="error-container">
+
+
         <div class="error-msg">
+            <!-- <img src="error.png" alt="error"/> -->
             <h1>Upps an error occured</h1>
             <h1>{$page.error.message}</h1>
         </div>
-    </div>
+
     
-</main>
+
+
+<style lang="scss">
+    .error-msg {
+        text-align: center;
+        margin: auto 0;
+    }
+</style>

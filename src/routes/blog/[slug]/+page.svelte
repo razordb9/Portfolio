@@ -5,7 +5,8 @@
 <article>
     <div class="article-header">
         <h1>{data.title}</h1>
-        <p class="date">Published: {data.date}</p>
+        <div class="date">Published: {data.date}</div>
+        <div>{data.publisher}</div>
     </div>
     <div class="article-text">
         <svelte:component this={data.content} />
@@ -25,6 +26,7 @@
             height: 100px;
             background-color: lightgrey;
             text-align: center;
+            margin: auto 0;
 
             h1 {
                 font-size: 35px;

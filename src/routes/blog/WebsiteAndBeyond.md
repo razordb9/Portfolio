@@ -1,6 +1,8 @@
 ---
 title: Website and beyond
 date: '2024-01-01'
+subtext: 'This would be my approche for creating a web design business'
+publisher: 'Thomas Hudson-Zaußnig'
 ---
 
 # Website and Beyond
