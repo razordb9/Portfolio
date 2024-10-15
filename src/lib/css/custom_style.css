@@ -1,18 +1,464 @@
-html, body {
-  box-sizing: border-box;
-  --nav_primary: darkred;
-  --nav_secondary: white;
-  font-family: sans-serif;
-  display: flex;
-  flex-direction: column;
-}
-
 *, *::before, *::after {
-  box-sizing: inherit;
-  margin: 0;
+  box-sizing: border-box;
 }
 
-.page-heading {
+html {
+  /*dark*/
+  --text-1-dark: #f1f1f1;
+  --text-2-dark: #e1e1e1;
+  --text-3-dark: #d1d1d1;
+  --brand-dark: #ff5a5f;
+  --accent-dark: #d8a826;
+  --accent-background-dark: #a07b15;
+  --accent-underline-dark: rgba(160, 123, 21, 0.5);
+  --accent-hover-dark: #ecc852;
+  --accent-hover-background-dark: #b08b17;
+  --accent-focus-dark: rgba(160, 123, 21, 0.375);
+  --primary-dark: #00a699;
+  --primary-background-dark: #007d72;
+  --primary-underline-dark: rgba(0, 125, 114, 0.5);
+  --primary-hover-dark: #00c4b3;
+  --primary-hover-background-dark: #009b8f;
+  --primary-focus-dark: rgba(0, 125, 114, 0.375);
+  /*light*/
+  --text-1-light: #1a1a1a;
+  --text-2-light: #2a2a2a;
+  --text-3-light: #3a3a3a;
+  --brand-light: #ff5a5f;
+  --accent-light: #a07b15;
+  --accent-background-light: #d8a826;
+  --accent-underline-light: rgba(160, 123, 21, 0.5);
+  --accent-hover-light: #ecc852;
+  --accent-hover-background-light: #b08b17;
+  --accent-focus-light: rgba(160, 123, 21, 0.375);
+  --primary-light: #00a699;
+  --primary-background-light: #007d72;
+  --primary-underline-light: rgba(0, 125, 114, 0.5);
+  --primary-hover-light: #00c4b3;
+  --primary-hover-background-light: #009b8f;
+  --primary-focus-light: rgba(0, 125, 114, 0.375);
+  --surface-1-dark: #1a1a1a;
+  --surface-2-dark: #282828;
+  --surface-3-dark: #333333;
+  --surface-4-dark: #3a3a3a;
+  --sufgace-5-dark: #444444;
+  --surface-1-light: #f1f1f1;
+  --surface-2-light: #e1e1e1;
+  --surface-3-light: #d1d1d1;
+  --surface-4-light: #c1c1c1;
+  --surface-5-light: #b1b1b1;
+  /* settings */
+  --font-body: Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --font-mono: "Fira Mono", monospace;
+  --side: 2rem;
+  --content-width: 980px;
+  --base-font-size: 16px;
+  --line-height: 1.5;
+  --animation-time: 200ms;
+  --scroll-padding-top: 20px;
+  --shiki-color: var(--text-1);
+  --shiki-background-color: var(--surface-1);
+}
+
+:root {
+  color-scheme: dark;
+  --brand: var(--brand-dark);
+  --primary: var(--primary-dark);
+  --accent: var(--accent-dark);
+  --text-1: var(--text-1-dark);
+  --text-2: var(--text-2-dark);
+  --text-3: var(--text-3-dark);
+  --surface-1: var(--surface-1-dark);
+  --surface-2: var(--surface-2-dark);
+  --surface-3: var(--surface-3-dark);
+  --surface-4: var(--surface-4-dark);
+  --surface-5: var(--surface-5-dark);
+  --font-size-00: .5rem;
+  --font-size-0: .75rem;
+  --font-size-1: 1rem;
+  --font-size-2: 1.1rem;
+  --font-size-3: 1.25rem;
+  --font-size-4: 1.5rem;
+  --font-size-5: 2rem;
+  --font-size-6: 2.5rem;
+  --font-size-7: 3rem;
+  --font-size-8: 3.5rem;
+  --font-lineheight-00: .95;
+  --font-lineheight-0: 1.1;
+  --font-lineheight-1: 1.25;
+  --font-lineheight-2: 1.375;
+  --font-lineheight-3: 1.5;
+  --font-lineheight-4: 1.75;
+  --font-lineheight-5: 2;
+  --font-weight-1: 100;
+  --font-weight-2: 200;
+  --font-weight-3: 300;
+  --font-weight-4: 400;
+  --font-weight-5: 500;
+  --font-weight-6: 600;
+  --font-weight-7: 700;
+  --font-weight-8: 800;
+  --font-weight-9: 900;
+  --size-000: -.5rem;
+  --size-00: -.25rem;
+  --size-1: .25rem;
+  --size-2: .5rem;
+  --size-3: 1rem;
+  --size-4: 1.25rem;
+  --size-5: 1.5rem;
+  --size-6: 1.75rem;
+  --size-7: 2rem;
+  --size-8: 3rem;
+  --size-9: 4rem;
+  --size-10: 5rem;
+  --size-11: 7.5rem;
+  --size-12: 10rem;
+  --size-13: 15rem;
+  --size-14: 20rem;
+  --size-15: 30rem;
+  --size-px-000: -8px;
+  --size-px-00: -4px;
+  --size-px-1: 4px;
+  --size-px-2: 8px;
+  --size-px-3: 16px;
+  --size-px-4: 20px;
+  --size-px-5: 24px;
+  --size-px-6: 28px;
+  --size-px-7: 32px;
+  --size-px-8: 48px;
+  --size-px-9: 64px;
+  --size-px-10: 80px;
+  --size-px-11: 120px;
+  --size-px-12: 160px;
+  --size-px-13: 240px;
+  --size-px-14: 320px;
+  --size-px-15: 480px;
+  --size-fluid-1: clamp(.5rem, 1vw, 1rem);
+  --size-fluid-2: clamp(1rem, 2vw, 1.5rem);
+  --size-fluid-3: clamp(1.5rem, 3vw, 2rem);
+  --size-fluid-4: clamp(2rem, 4vw, 3rem);
+  --size-fluid-5: clamp(4rem, 5vw, 5rem);
+  --size-fluid-6: clamp(5rem, 7vw, 7.5rem);
+  --size-fluid-7: clamp(7.5rem, 10vw, 10rem);
+  --size-fluid-8: clamp(10rem, 20vw, 15rem);
+  --size-fluid-9: clamp(15rem, 30vw, 20rem);
+  --size-fluid-10: clamp(20rem, 40vw, 30rem);
+  --shadow-1: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-2: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-3: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-4: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-5: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-6: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  /* Breakpoints */
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  /*override styles when needed... */
+  --pico-form-element-disabled-opacity: 0.5;
+  --pico-form-element-invalid-border-color: #964a50;
+  --pico-form-element-invalid-active-border-color: #b7403b;
+  --pico-form-element-invalid-focus-color: var(--pico-form-element-invalid-active-border-color);
+  --pico-form-element-valid-border-color: #2a7b6f;
+  --pico-form-element-valid-active-border-color: #16896a;
+  --pico-form-element-valid-focus-color: var(--pico-form-element-valid-active-border-color);
+  --pico-switch-background-color: #333c4e;
+  --pico-switch-checked-background-color: var(--pico-primary-background);
+  --pico-switch-color: #fff;
+  --pico-switch-thumb-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  --pico-range-border-color: #202632;
+  --pico-range-active-border-color: #2a3140;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+    --brand: var(--brand-light);
+    --primary: var(--primary-light);
+    --accent: var(--accent-light);
+    --text-1: var(--text-1-light);
+    --text-2: var(--text-2-light);
+    --text-3: var(--text-3-light);
+    --surface-1: var(--surface-1-light);
+    --surface-2: var(--surface-2-light);
+    --surface-3: var(--surface-3-light);
+    --surface-4: var(--surface-4-light);
+    --surface-5: var(--surface-5-light);
+    --pico-primary: var(--primary-light);
+    --pico-primary-background: var(--primary-background-light);
+    --pico-primary-underline: var(--primary-underline-light);
+    --pico-primary-hover: var(--primary-hover-light);
+    --pico-primary-hover-background: var(--primary-hover-background-light);
+    --pico-primary-focus: var(--primary-focus-light);
+    --pico-primary-inverse: var(--text-2);
+  }
+  :root button {
+    color: var(--text-1-dark);
+  }
+}
+html[data-theme=dark] {
+  --brand: var(--brand-dark);
+  --primary: var(--primary-dark);
+  --accent: var(--accent-dark);
+  --text-1: var(--text-1-dark);
+  --text-2: var(--text-2-dark);
+  --text-3: var(--text-3-dark);
+  --surface-1: var(--surface-1-dark);
+  --surface-2: var(--surface-2-dark);
+  --surface-3: var(--surface-3-dark);
+  --surface-4: var(--surface-4-dark);
+  --surface-5: var(--surface-5-dark);
+  --pico-primary: var(--accent-dark);
+  --pico-primary-background: var(--accent-background-dark);
+  --pico-primary-underline: var(--accent-underline-dark);
+  --pico-primary-hover: var(--accent-hover-dark);
+  --pico-primary-hover-background: var(--accent-hover-background-dark);
+  --pico-primary-focus: var(--accent-focus-dark);
+  --pico-primary-inverse: var(--text-2);
+}
+html[data-theme=dark] .shiki, html[data-theme=dark] .shiki span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+  /* Optional, if you also want font styles */
+  font-style: var(--shiki-dark-font-style) !important;
+  font-weight: var(--shiki-dark-font-weight) !important;
+  -webkit-text-decoration: var(--shiki-dark-text-decoration) !important;
+          text-decoration: var(--shiki-dark-text-decoration) !important;
+}
+
+html[data-theme=light] {
+  --brand: var(--brand-light);
+  --primary: var(--primary-light);
+  --accent: var(--accent-light);
+  --text-1: var(--text-1-light);
+  --text-2: var(--text-2-light);
+  --text-3: var(--text-3-light);
+  --surface-1: var(--surface-1-light);
+  --surface-2: var(--surface-2-light);
+  --surface-3: var(--surface-3-light);
+  --surface-4: var(--surface-4-light);
+  --surface-5: var(--surface-5-light);
+  --pico-primary: var(--primary-light);
+  --pico-primary-background: var(--primary-background-light);
+  --pico-primary-underline: var(--primary-underline-light);
+  --pico-primary-hover: var(--primary-hover-light);
+  --pico-primary-hover-background: var(--primary-hover-background-light);
+  --pico-primary-focus: var(--primary-focus-light);
+  --pico-primary-inverse: var(--text-2);
+}
+
+[data-theme=light],
+:root:not([data-theme=dark]) {
+  --pico-primary: var(--primary-light);
+  --pico-primary-background: var(--primary-background-light);
+  --pico-primary-underline: var(--primary-underline-light);
+  --pico-primary-hover: var(--primary-hover-light);
+  --pico-primary-hover-background: var(--primary-hover-background-light);
+  --pico-primary-focus: var(--primary-focus-light);
+  --pico-primary-inverse: var(--text-2);
+}
+
+[data-theme=dark],
+:root:not([data-theme=light]) {
+  --pico-primary: var(--primary-dark);
+  --pico-primary-background: var(--primary-background-dark);
+  --pico-primary-underline: var(--primary-underline-dark);
+  --pico-primary-hover: var(--primary-hover-dark);
+  --pico-primary-hover-background: var(--primary-hover-background-dark);
+  --pico-primary-focus: var(--primary-focus-dark);
+  --pico-primary-inverse: var(--text-2);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--scroll-padding-top);
+  scroll-behavior: smooth;
+  scroll-snap-type: proximity;
+}
+
+body {
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  background-color: var(--surface-1);
+  color: var(--text-1);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  font-size: var(--base-font-size);
+  line-height: var(--line-height);
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+html ::-webkit-scrollbar, body ::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+  -webkit-transition: all var(--animation-time) ease-in-out;
+  transition: all var(--animation-time) ease-in-out;
+}
+html ::-webkit-scrollbar-track, body ::-webkit-scrollbar-track {
+  background: var(--primary);
+}
+html ::-webkit-scrollbar-thumb, body ::-webkit-scrollbar-thumb {
+  background: var(--brand);
+  border-radius: 5px;
+}
+html ::-webkit-scrollbar-thumb:hover, body ::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary);
+  -webkit-transition: background-color var(--animation-time) ease-in-out;
+  transition: background-color var(--animation-time) ease-in-out;
+}
+
+.surface-1 {
+  background-color: var(--surface-1);
+  color: var(--text-1);
+}
+
+.surface-2 {
+  background-color: var(--surface-2);
+  color: var(--text-2);
+}
+
+.surface-3 {
+  background-color: var(--surface-3);
+  color: var(--text-3);
+}
+
+.surface-4 {
+  background-color: var(--surface-4);
+  color: var(--text-3);
+}
+
+.surface-5 {
+  background-color: var(--surface-5);
+  color: var(--text-3);
+}
+
+.primary {
+  color: var(--primary);
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.brand {
+  color: var(--brand);
+}
+
+.shiki {
+  margin-bottom: var(--size-6);
+  width: 100%;
+  max-inline-size: 100%;
+  align-self: center;
+  padding-inline: var(--size-4);
+  padding-block: var(--size-4);
+  border-radius: 0 0 var(--size-2) var(--size-2);
+  box-shadow: var(--shadow-5);
+  /*border-left: 1px solid var(--surface-4);
+  border-right: 1px solid var(--surface-4);
+  border-bottom: 1px solid var(--surface-4);*/
+  box-sizing: border-box;
+  font-size: 0.9rem !important;
+  transition: all var(--animation-time) ease-in-out;
+}
+.shiki code {
+  width: 100%;
+  max-width: 100%;
+  max-inline-size: 100%;
+  overflow-x: auto;
+  display: block;
+  transition: all var(--animation-time) ease-in-out;
+}
+
+.copy-button-wrapper {
+  --border-radius: var(--size-2) var(--size-2) 0 0;
+  --border-radius-label: var(--size-1);
+  position: relative;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-self: center;
+  width: 100%;
+  /*max-inline-size: 95%;*/
+  max-inline-size: 100%;
+  padding-block: var(--size-1);
+  padding-inline: var(--size-1);
+  border-radius: var(--border-radius);
+  /*background-color: var(--surface-3);*/
+  background: linear-gradient(70deg, var(--surface-2) calc(100% - 70px), var(--surface-3) 70px);
+  box-sizing: border-box;
+  /*border-left: .1px solid var(--surface-6);
+  border-right: .1px solid var(--surface-6);
+  border-top: .1px solid var(--surface-6);
+  border-bottom: 1px solid var(--surface-1);*/
+  transition: all var(--animation-time) ease-in-out;
+}
+.copy-button-wrapper span {
+  margin: 0;
+  padding: 0;
+  padding-inline: var(--size-2);
+  margin-left: var(--size-1);
+  display: flex;
   text-align: center;
-  margin-bottom: 20px;
+  align-items: center;
+  align-self: center;
+  background-color: var(--brand);
+  font-weight: var(--font-weight-6);
+  font-size: var(--font-size-0);
+  height: var(--font-size-3);
+  text-transform: uppercase;
+  border-radius: var(--border-radius-label);
+  color: var(--surface-2);
+}
+.copy-button-wrapper .copy-button {
+  margin: 0;
+  margin-right: 1rem;
+  margin-block: var(--size-1);
+  padding: 1px;
+  width: var(--size-6);
+  height: var(--size-6);
+  box-shadow: 0 0 1px 1px var(--surface-1);
+  background-color: var(--surface-3);
+  border-width: 0;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 1px 1px var(--primary);
+  transition: all var(--animation-time) ease-in-out;
+}
+.copy-button-wrapper .copy-button svg {
+  display: flex;
+  justify-self: center;
+  fill: transparent;
+  stroke: var(--primary);
+  transition: all var(--animation-time) ease-in-out;
+  height: 1rem;
+  width: auto;
+}
+.copy-button-wrapper .copy-button:hover {
+  background: var(--surface-1);
+  box-shadow: 0 0 1px 1px var(--brand);
+  transition: all var(--animation-time) ease-in-out;
+}
+.copy-button-wrapper .copy-button:hover svg {
+  /*fill:var(--brand);*/
+  stroke: var(--surface-1);
+  stroke: var(--brand);
+  stroke-width: 2px;
+  transition: all var(--animation-time) ease-in-out;
+}
+
+.blog-post ul, .blog-post ol, .blog-post menu {
+  list-style-type: auto;
+  margin: auto !important;
+}
+.blog-post ul li, .blog-post ol li, .blog-post menu li {
+  list-style-type: disc;
+  margin-left: 1rem !important;
 }/*# sourceMappingURL=custom_style.css.map */

@@ -49,7 +49,7 @@ HTML = Hyper Text Markup Language
 
 Legt aussehen und Struktur der Website fest
 
-```js
+```javascript
 //Javascript goes here
 console.log("Console output")
 ```

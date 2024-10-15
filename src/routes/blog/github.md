@@ -51,7 +51,7 @@ touch hallo.html -> create empty html file
 
 
 git merge conflict looks like:
-```git
+```
 <<<<<<< HEAD
     <h1>Test test2 test3</h1>
 =======
