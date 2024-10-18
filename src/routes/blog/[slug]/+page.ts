@@ -3,8 +3,6 @@ import { error } from "@sveltejs/kit";
 
 export const load: PageLoad = async ({ params }) => {
     try {
-        console.log('xxxxxxxxxxxxx', params);
-        // const slug = params.slug;
         const blogPost = await import(`../${params.slug}.md`);
         console.log(blogPost.metadata);
         const { title, date, publisher, categories } = blogPost.metadata;

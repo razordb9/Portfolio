@@ -18,13 +18,13 @@
         position: relative;
         width: 100%;
         text-align: center;
-        background-color: var(--nav_primary);
-        color: var(--nav_secondary);
+        background-color: var(--brand);
+        color: var(--surface-1-light);
         padding: 20px;
         height: 80px;
         a {
             text-decoration: none;
-            color: var(--nav_secondary);
+            color: var(--surface-1-light);
         }
         .footer-img {
             filter: invert(1); 

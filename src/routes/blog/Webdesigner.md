@@ -8,8 +8,6 @@ categories:
     - webdesign
 ---
 
-# WebDesigner
-
 ## Webseitenkonzeption und Projektmanagement
 
 ### Definition Webdesign

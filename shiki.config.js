@@ -61,6 +61,7 @@ export async function highlightCode(code, lang = 'javascript') {
         cssVariablePrefix: '--shiki-',
     });
     let _code = replaceRgbWithVar(highlighted)
+    console.log('xxxxxx', _code)
     let highlightedWithLang = appendLanguage(_code, lang);
     return highlightedWithLang;
 }

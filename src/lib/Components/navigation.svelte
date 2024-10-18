@@ -47,7 +47,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--nav_primary);
+    background-color: var(--brand);
     // padding: 10px 5px;
 
     .logo {
@@ -89,12 +89,12 @@
         transition: all 200ms ease-in-out;
         color: var(--nav_secondary);
         border-radius: 5px;
-        background-color: rgb(119, 0, 0);
+        background-color: var(--surface-1-light);
       }
 
       &:hover {
         a {
-          background-color: var(--nav_secondary);
+          // background-color: var(--nav_secondary);
           transition: all 200ms ease-in-out;
           color: var(--nav_primary);
         }
