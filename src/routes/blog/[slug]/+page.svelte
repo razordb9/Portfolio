@@ -19,15 +19,19 @@
 </article>
 
 <style lang="scss">
-    
-
     article {
         // background-color: lightgray;
         padding: 20px;
 
         .article-header {
-            height: 100px;
-            background-color: lightgrey;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 5px;
+            height: 250px;
+            background-color: var(--primary);
+            color: var(--surface-1-light);
             text-align: center;
             margin: auto 0;
 
@@ -44,7 +48,8 @@
             display: flex;
             gap: var(--size-3);
             margin-top: var(--size-7);
-	    }
+            // margin: auto 0;
+        }
 
         .article-tags > * {
             padding: var(--size-2) var(--size-3);

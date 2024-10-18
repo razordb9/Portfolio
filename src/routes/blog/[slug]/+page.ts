@@ -7,7 +7,7 @@ export const load: PageLoad = async ({ params }) => {
         console.log(blogPost.metadata);
         const { title, date, publisher, categories } = blogPost.metadata;
         const content = blogPost.default;
-
+            // return {}
         return {
             content, 
             title,
@@ -16,8 +16,10 @@ export const load: PageLoad = async ({ params }) => {
             categories
         };
     } catch (ex: any) {
+        console.log(ex.message);
         throw error(404, {
             message: ex.message
+            
         })
     }
     
