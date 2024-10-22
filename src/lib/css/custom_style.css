@@ -45,7 +45,7 @@ html {
 }
 
 :root {
-  color-scheme: dark;
+  /* color-scheme: dark; */
   --brand: var(--brand-dark);
   --primary: var(--primary-dark);
   --accent: var(--accent-dark);
