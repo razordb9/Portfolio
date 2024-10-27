@@ -9,7 +9,7 @@
         <div>{data.publisher}</div>
         <div class="article-tags">
             {#each data.categories as category}
-	    		<span class="surface-4">&num;{category}</span>
+	    		<span class="surface-4 category">&num;{category}</span>
 		    {/each}
         </div>
     </div>
@@ -53,7 +53,7 @@
 
         .article-tags > * {
             padding: var(--size-2) var(--size-3);
-            border-radius: var(--radius-round);
+            border-radius: 50px;
         }
     }
 

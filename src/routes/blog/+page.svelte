@@ -19,6 +19,9 @@
 </div>
 
 <style lang="scss">
+    .page-heading{
+        text-align: center;
+    }
     .page-subtext {
         text-align: center;
     }
@@ -50,8 +53,8 @@
             // background-color: yellow;
             box-shadow: 10px 10px 5px lightgrey;
         }
-        // .blog-item:hover {
-        //     box-shadow: 10px 10px 5px lightgrey;
-        // }
+        .blog-item:hover {
+            transform: scale(1.1);
+        }
     }
 </style>
