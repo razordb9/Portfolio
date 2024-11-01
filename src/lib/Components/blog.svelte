@@ -4,16 +4,21 @@
     export let published: string = "";
     export let subtext: string = "";
     export let publisher: string = "";
+    export let image: string = "";
+
+    if (image.length == 0){
+        image = "https://cdn.freecodecamp.org/testable-projects-fcc/images/tribute.jpg";
+    }
 </script>
 
 <!-- <img class="blog-item-img" src="/Logo.png" alt="Hudson-Zaußnig Solutions"> -->
 <div class="blog-card">
     <a href={path}>
         <img
-                class="blog-image"
-                src="https://cdn.freecodecamp.org/testable-projects-fcc/images/tribute.jpg"
-                alt="project"
-            />
+            class="blog-image"
+            src='{image}'
+            alt="{image}"
+        />
         <div class="blog-meta">
             <div class="blog-card-title">
                 {title}    

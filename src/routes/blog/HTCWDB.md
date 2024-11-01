@@ -3,6 +3,7 @@ title: How to create Web design business
 date: '2024-01-01'
 subtext: 'This would be my approche for creating a web design business'
 publisher: 'Thomas Hudson-Zaußnig'
+image: 'Thomas.jpg'
 categories: 
     - business
     - webdesign
