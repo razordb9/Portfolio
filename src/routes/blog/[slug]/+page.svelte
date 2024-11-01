@@ -7,6 +7,7 @@
         <h1>{data.title}</h1>
         <div class="date">Published: {data.date}</div>
         <div>{data.publisher}</div>
+        <img src={data.image} alt="testing"/>
         <div class="article-tags">
             {#each data.categories as category}
 	    		<span class="surface-4 category">&num;{category}</span>

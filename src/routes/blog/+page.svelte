@@ -12,7 +12,7 @@
     <div class="blog-container">
             {#each data.posts as post}
                 <div class="blog-item">
-                    <Blog path={post.path} title={post.meta.title} published={post.meta.date} subtext={post.meta.subtext} publisher={post.meta.publisher}/>
+                    <Blog path={post.path} title={post.meta.title} published={post.meta.date} subtext={post.meta.subtext} image={post.meta.image} publisher={post.meta.publisher}/>
                 </div>
             {/each}
     </div>
