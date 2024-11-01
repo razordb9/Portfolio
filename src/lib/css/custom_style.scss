@@ -43,7 +43,7 @@ html {
     --font-mono: 'Fira Mono', monospace;
     --side: 2rem;
     --content-width: 980px;
-    --base-font-size: 16px;
+    --base-font-size: 14px;
     --line-height: 1.5;
     --animation-time: 200ms;
     --scroll-padding-top: 20px;
@@ -209,7 +209,7 @@ html, body{
     margin: 0;
     padding: 0;
     font-family: var(--font-body);
-    font-size: var(--base-font-size);
+    font-size: calc(var(--base-font-size) + 0.35vw);
     line-height: var(--line-height);
 
     // /* Track */

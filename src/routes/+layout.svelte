@@ -24,4 +24,11 @@
     min-height: calc(100vh - 80px);
     height: 100%;
   }
+  @media (max-width: 500px){
+    .app{
+      background-color: red;
+      padding-inline: var(--side);
+    }
+  }
+
 </style>
