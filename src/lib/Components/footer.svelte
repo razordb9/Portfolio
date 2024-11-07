@@ -21,7 +21,7 @@
         background-color: var(--brand);
         color: var(--surface-1-light);
         padding: 20px;
-        height: 80px;
+        height: auto;
         a {
             text-decoration: none;
             color: var(--surface-1-light);

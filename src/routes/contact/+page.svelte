@@ -1,7 +1,48 @@
+<script lang="ts">
+    import { onMount } from 'svelte';
+    import { writable } from 'svelte/store';
+  
+    // Define writable stores for form fields
+    const name = writable('');
+    const email = writable('');
+    const message = writable('');
+    const formMessage = writable('');
+  
+    // Form submission handler
+    async function handleSubmit(event: Event) {
+      event.preventDefault();
+  
+      const formData = {
+        name: $name,
+        email: $email,
+        message: $message
+      };
+  
+      try {
+        // Send data to the server via a POST request
+        const response = await fetch('/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+  
+        const result = await response.json();
+        formMessage.set(result.message || 'Thank you for contacting us!');
+        if (response.ok) {
+          name.set('');
+          email.set('');
+          message.set('');
+        }
+      } catch (error) {
+        formMessage.set('An error occurred. Please try again later.');
+      }
+    }
+  </script>
+  
 <div class="wrapper">
-    <form>
+    <form on:submit={handleSubmit}>
         <label for="fullName">Vor und Nachname</label>
-        <input type="text" id="fullName" name="fullName" />
+        <input type="text" id="fullName" name="fullName" bind:value={$name} required/>
 
         <label for="email">Email</label>
         <input
@@ -9,13 +50,18 @@
             id="email"
             name="email"
             placeholder="example@email.com"
+            required
+            bind:value={$email}
         />
 
         <label for="textArea">Nachricht</label>
-        <textarea name="message" id="message" rows="10" cols="30" />
+        <textarea name="message" id="message" rows="10" cols="30" bind:value={$message} required/>
 
-        <button type="submit" value="Submit">Senden</button>
+        <button type="submit">Senden</button>
     </form>
+    {#if $formMessage}
+      <p>{$formMessage}</p>
+    {/if}
 </div>
 
 <style lang="scss">

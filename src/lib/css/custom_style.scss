@@ -289,14 +289,17 @@ html, body{
 }
 
 .copy-button-wrapper {
+
     --border-radius: var(--size-2) var(--size-2) 0 0;
     --border-radius-label: var(--size-1);
     position: relative;
     margin: 0;
     padding: 0;
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
+    // flex-direction: row-reverse; enable if copy button is finally working
+    // justify-content: space-between; enable if copy button is finally working
+    justify-content: flex-start;
+
     align-self: center;
     width: 100%;
     /*max-inline-size: 95%;*/
@@ -304,8 +307,8 @@ html, body{
     padding-block: var(--size-1);
     padding-inline: var(--size-1);
     border-radius: var(--border-radius);
-    /*background-color: var(--surface-3);*/
-    background: linear-gradient(70deg, var(--surface-2) calc(100% - 70px), var(--surface-3) 70px);
+    background-color: var(--surface-3);
+    // background: linear-gradient(70deg, var(--surface-2) calc(100% - 70px), var(--surface-3) 70px); enable if copy button is finally working
 
     box-sizing: border-box;
     /*border-left: .1px solid var(--surface-6);
@@ -330,7 +333,6 @@ html, body{
         text-transform: uppercase;
         border-radius: var(--border-radius-label);
         color: var(--surface-2);
-
     }
 
     .copy-button {
@@ -374,6 +376,7 @@ html, body{
     }
     transition: all var(--animation-time) ease-in-out;
 }
+
 .blog-post{
     ul, ol, menu{
         list-style-type: auto;
