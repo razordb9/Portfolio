@@ -10,11 +10,11 @@
     </div> -->
 <div class="blog">
     <div class="blog-container">
-            {#each data.posts as post}
-                <div class="blog-item">
-                    <Blog path={post.path} title={post.meta.title} published={post.meta.date} subtext={post.meta.subtext} image={post.meta.image} publisher={post.meta.publisher}/>
-                </div>
-            {/each}
+        {#each data.posts as post}
+            <div class="blog-item">
+                <Blog path={post.path} title={post.meta.title} published={post.meta.date} subtext={post.meta.subtext} image={post.meta.image} publisher={post.meta.publisher}/>
+            </div>
+        {/each}
     </div>
 </div>
 
@@ -52,6 +52,7 @@
             // width: 150px;
             // background-color: yellow;
             box-shadow: 10px 10px 5px lightgrey;
+            transition: transform 300ms ease-in-out;
         }
         .blog-item:hover {
             transform: scale(1.1);

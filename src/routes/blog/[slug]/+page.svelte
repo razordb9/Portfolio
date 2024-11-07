@@ -1,5 +1,6 @@
 <script lang="ts">
     export let data;
+    console.log(data.image);
 </script>
 
 <article>
@@ -7,7 +8,9 @@
         <h1>{data.title}</h1>
         <div class="date">Published: {data.date}</div>
         <div>{data.publisher}</div>
-        <img src={data.image} alt="testing"/>
+        {#if data.image != ""}
+            <img src={data.image} alt="testing"/>
+        {/if}
         <div class="article-tags">
             {#each data.categories as category}
 	    		<span class="surface-4 category">&num;{category}</span>
@@ -30,12 +33,12 @@
             align-items: center;
             flex-direction: column;
             border-radius: 5px;
-            height: 250px;
+            height: auto;
             background-color: var(--primary);
             color: var(--surface-1-light);
             text-align: center;
             margin: auto 0;
-
+            padding: 20px 0px;
             h1 {
                 font-size: 35px;
             }

@@ -26,7 +26,7 @@
   }
   @media (max-width: 500px){
     .app{
-      background-color: red;
+      // backgroundk-color: red;
       padding-inline: var(--side);
     }
   }
