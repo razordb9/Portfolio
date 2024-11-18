@@ -1,5 +1,4 @@
 <script lang="ts">
-    import { onMount } from 'svelte';
     import { writable } from 'svelte/store';
   
     // Define writable stores for form fields
@@ -20,36 +19,34 @@
   
       try {
         // Send data to the server via a POST request
-        const response = await fetch('/contact', {
+        const response = await fetch('/api/contact', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(formData)
         });
   
         const result = await response.json();
-        formMessage.set(result.message || 'Thank you for contacting us!');
+        formMessage.set(result.message); //|| 'Thank you for contacting us!');
         if (response.ok) {
-          name.set('');
-          email.set('');
-          message.set('');
+            console.log(name);
+            name.set('');
+            email.set('');
+            message.set('');
+        } else {
+            console.log("Error")
+            console.log(name)
+            console.log(response.ok)
         }
       } catch (error) {
         formMessage.set('An error occurred. Please try again later.');
+        console.log(error);
       }
     }
 </script>
-
-<section id="welcome-section">
-    <h1>Hello I am Thomas</h1>
-    <p>a ongoing webdesigner</p>
-    <!-- <div class="item"><a href="/about">About me</a></div> -->
-    <!-- <div class="item"><a href="/blog">Blog</a></div> -->
-
-</section>
 <section id="contact" class="contact-section">
     <div class="contact-header">
-          <h2>Let's work together...</h2>
-          <p>How do you take your coffee?</p>
+        <h2>You have something to tell me?</h2>
+        <p>Leave me a message</p>
     </div>
     <form id="contactForm" on:submit={handleSubmit}>
         <label for="fullName">First and lastname</label>
@@ -74,8 +71,6 @@
         <p>{$formMessage}</p>
     {/if}
 </section>
-
-
 <style lang="scss">
     #contact {
         background-color: #303841;
@@ -92,7 +87,7 @@
         }
 
         .contact-header p {
-            font-size: 2rem;
+            font-size: 1.5rem;
         }
 
         .contact-links {
@@ -169,35 +164,4 @@
         }
         
     }
-    #welcome-section {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background-color: var(--surface-5);
-        
-        width: 100%;
-        height: 100vh;
-
-        .item{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        list-style: none;
-        //   height: 50%;
-        // margin-right: 10px;
-            a{
-                display: flex;
-                padding-inline: 1rem;
-                align-items: center;
-                height: 100%;
-                text-decoration: none;
-                transition: all 200ms ease-in-out;
-                color: var(--nav_secondary);
-                border-radius: 5px;
-                background-color: var(--surface-1-light);
-            }
-        }
-    }
-    
 </style>

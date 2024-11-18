@@ -1,4 +1,5 @@
 <script lang="ts">
+    import ContactForm from '$lib/Components/contact.svelte';
     export let data;
     console.log(data.image);
 </script>
@@ -21,6 +22,7 @@
         <svelte:component this={data.content} />
     </div>
 </article>
+<ContactForm />
 
 <style lang="scss">
     article {
