@@ -1,3 +1,7 @@
+<script lang="ts">
+  import ContactForm from '$lib/Components/contact.svelte';
+</script>
+
 <h1 class="page-heading">Test</h1>
 <div class="page-subtext">
     <p>In this area you can find test stuff I try about.</p>
@@ -9,12 +13,13 @@
   </ul> -->
 
 <!-- Calendly Inline-Widget Beginn -->
-<div class="calendly-inline-widget" data-url="https://calendly.com/thomas-zaussnig/30min" style="min-width:320px;height:700px;"></div>
+<!-- <div class="calendly-inline-widget" data-url="https://calendly.com/thomas-zaussnig/30min" style="min-width:320px;height:700px;"></div>
 <svelte:head>
   <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-</svelte:head>
+</svelte:head> -->
 <!-- Calendly Inline-Widget Ende -->
 
+<ContactForm />
 <style>
 .flex-list {
   list-style-type: none; /* Removes bullets */
