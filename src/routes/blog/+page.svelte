@@ -5,9 +5,6 @@
 </script>
 
 <h1 class="page-heading">Blog</h1>
-    <!-- <div class="page-subtext">
-        <p>In this area you can find technical articles I try to write about.</p>
-    </div> -->
 <div class="blog">
     <div class="blog-container">
         {#each data.posts as post}
