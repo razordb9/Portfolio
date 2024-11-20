@@ -1,42 +1,5 @@
 <script lang="ts">
-    import { onMount } from 'svelte';
-    import { writable } from 'svelte/store';
-  
-    // Define writable stores for form fields
-    const name = writable('');
-    const email = writable('');
-    const message = writable('');
-    const formMessage = writable('');
-  
-    // Form submission handler
-    async function handleSubmit(event: Event) {
-      event.preventDefault();
-  
-      const formData = {
-        name: $name,
-        email: $email,
-        message: $message
-      };
-  
-      try {
-        // Send data to the server via a POST request
-        const response = await fetch('/contact', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(formData)
-        });
-  
-        const result = await response.json();
-        formMessage.set(result.message || 'Thank you for contacting us!');
-        if (response.ok) {
-          name.set('');
-          email.set('');
-          message.set('');
-        }
-      } catch (error) {
-        formMessage.set('An error occurred. Please try again later.');
-      }
-    }
+    import ContactForm from '$lib/Components/contact.svelte';
 </script>
 
 <section id="welcome-section">
@@ -46,34 +9,7 @@
     <!-- <div class="item"><a href="/blog">Blog</a></div> -->
 
 </section>
-<section id="contact" class="contact-section">
-    <div class="contact-header">
-          <h2>Let's work together...</h2>
-          <p>How do you take your coffee?</p>
-    </div>
-    <form id="contactForm" on:submit={handleSubmit}>
-        <label for="fullName">First and lastname</label>
-        <input type="text" id="fullName" name="fullName" placeholder="First and lastname    " bind:value={$name} required/>
-
-        <label for="email">Email</label>
-        <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="example@email.com"
-            bind:value={$email}
-            required
-        />
-
-        <label for="message">Message</label>
-        <textarea name="message" id="message" rows="10" cols="30" placeholder="Enter your message..." bind:value={$message} required/>
-
-        <button type="submit">Senden</button>
-    </form>
-    {#if $formMessage}
-        <p>{$formMessage}</p>
-    {/if}
-</section>
+<ContactForm />
 
 
 <style lang="scss">

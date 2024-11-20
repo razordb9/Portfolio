@@ -137,13 +137,13 @@ This is exactly what white space helps with. Some other benefits:
 * Mobile – mobile traffic is increasing significantly and if you want to get the right message across, it needs to be simple with no distractions.
 
 Example for bad whitespacingx
-<img src="./assets/Whitespace.png">
+<!-- <img src="./assets/Whitespace.png"> -->
 
 Take note of the page margin, heading space, line height in paragraphs and image padding.
 The only thing different between these 2 examples is the use of white space.
 You might think that this is just a newspaper example, but this principle applies in web design as well.
 Take a look at the following wireframe web design options:
-<img src="./assets/Wireframe.png">
+<!-- <img src="./assets/Wireframe.png"> -->
 
 Takeaway: use white space effectively for every page element (images, text, CTA, etc.). 
 Double takeaway text comes here for the
@@ -175,7 +175,7 @@ A button needs to LOOK clickable, be CLEARLY visible and GUIDE the next step. So
 * A button needs to be clearly visible.
 * A button needs to guide the next step.
 
-<img src="./assets/buttonformats.png">
+<!-- <img src="./assets/buttonformats.png"> -->
 
 ### Size
 
