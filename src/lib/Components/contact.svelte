@@ -28,7 +28,6 @@
         const result = await response.json();
         formMessage.set(result.message); //|| 'Thank you for contacting us!');
         if (response.ok) {
-            console.log(name);
             name.set('');
             email.set('');
             message.set('');
