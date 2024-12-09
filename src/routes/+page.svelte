@@ -9,7 +9,7 @@
     <!-- <div class="item"><a href="/blog">Blog</a></div> -->
 
 </section>
-<ContactForm />
+<ContactForm question='You have something to tell me?'/>
 
 
 <style lang="scss">

@@ -22,7 +22,7 @@
         <svelte:component this={data.content} />
     </div>
 </article>
-<ContactForm />
+<ContactForm question='You have something to tell me?'/>
 
 <style lang="scss">
     article {
