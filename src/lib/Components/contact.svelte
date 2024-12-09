@@ -1,6 +1,6 @@
 <script lang="ts">
     import { writable } from 'svelte/store';
-  
+    export let question = '';
     // Define writable stores for form fields
     const name = writable('');
     const email = writable('');
@@ -44,7 +44,7 @@
 </script>
 <section id="contact" class="contact-section">
     <div class="contact-header">
-        <h2>You have something to tell me?</h2>
+        <h2>{question}</h2>
         <p>Leave me a message</p>
     </div>
     <form id="contactForm" on:submit={handleSubmit}>
