@@ -1,6 +1,6 @@
 <script lang="ts">
     import ContactForm from '$lib/Components/contact.svelte';
-    export let data;
+    let { data } = $props();
     console.log(data.image);
 </script>
 
@@ -19,7 +19,7 @@
         </div>
     </div>
     <div class="article-text">
-        <svelte:component this={data.content} />
+        <data.content />
     </div>
 </article>
 <ContactForm question='You have something to tell me?'/>

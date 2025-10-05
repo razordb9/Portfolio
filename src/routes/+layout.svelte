@@ -3,6 +3,11 @@
   import Footer from "$lib/Components/footer.svelte";
   import Navigation from "$lib/Components/navigation.svelte";
   import { routes } from "$lib/Components/routes";
+  interface Props {
+    children?: import('svelte').Snippet;
+  }
+
+  let { children }: Props = $props();
 </script>
 
 <header>
@@ -11,7 +16,7 @@
 </header>
 <main class="app">
   
-  <slot />
+  {@render children?.()}
 </main>
 <Footer /> 
 
@@ -23,6 +28,7 @@
     flex-direction: column;
     min-height: calc(100vh - 80px);
     height: 100%;
+    background-color: red;
   }
   @media (max-width: 500px){
     .app{

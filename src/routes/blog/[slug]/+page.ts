@@ -18,10 +18,10 @@ export const load: PageLoad = async ({ params }) => {
         };
     } catch (ex: any) {
         console.log(ex.message);
-        throw error(404, {
-            message: ex.message
-            
-        })
+        error(404, {
+                    message: ex.message
+                    
+                });
     }
     
 }

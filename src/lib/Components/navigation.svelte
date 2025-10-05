@@ -6,7 +6,7 @@
     name:string
   }
 
-  var open = false;
+  var open = $state(false);
   const openBurgerMenue = (e:MouseEvent) => {
     console.log(e.target)
     console.log(open)
@@ -15,7 +15,11 @@
 
   type Routes = Array<Route>;
 
-  export let routes: Routes;
+  interface Props {
+    routes: Routes;
+  }
+
+  let { routes }: Props = $props();
 </script>
 <nav class="navbar">
   <a href="/" class="logo">
@@ -26,8 +30,8 @@
       <li class="nav-item"><a href="{route.path}">{route.name}</a></li>
     {/each}
   </ul>
-   <!-- svelte-ignore a11y-click-events-have-key-events -->
-   <div class="nav-burger-menu" on:click={openBurgerMenue}> 
+   <!-- svelte-ignore a11y_click_events_have_key_events -->
+   <div class="nav-burger-menu" onclick={openBurgerMenue}> 
     <div class="line"></div>
     <div class="line"></div>
     <div class="line"></div>

@@ -1,10 +1,21 @@
 <script lang="ts">
-    export let path: string = "";
-    export let title: string = "";
-    export let published: string = "";
-    export let subtext: string = "";
-    export let publisher: string = "";
-    export let image: string = "";
+    interface Props {
+        path?: string;
+        title?: string;
+        published?: string;
+        subtext?: string;
+        publisher?: string;
+        image?: string;
+    }
+
+    let {
+        path = "",
+        title = "",
+        published = "",
+        subtext = "",
+        publisher = "",
+        image = $bindable("")
+    }: Props = $props();
 
     if (image.length == 0){
         image = "https://cdn.freecodecamp.org/testable-projects-fcc/images/tribute.jpg";

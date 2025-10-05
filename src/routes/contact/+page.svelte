@@ -40,7 +40,7 @@
   </script>
   
 <div class="wrapper">
-    <form on:submit={handleSubmit}>
+    <form onsubmit={handleSubmit}>
         <label for="fullName">Vor und Nachname</label>
         <input type="text" id="fullName" name="fullName" bind:value={$name} required/>
 
@@ -55,7 +55,7 @@
         />
 
         <label for="textArea">Nachricht</label>
-        <textarea name="message" id="message" rows="10" cols="30" bind:value={$message} required/>
+        <textarea name="message" id="message" rows="10" cols="30" bind:value={$message} required></textarea>
 
         <button type="submit">Senden</button>
     </form>

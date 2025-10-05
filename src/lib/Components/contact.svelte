@@ -1,6 +1,10 @@
 <script lang="ts">
     import { writable } from 'svelte/store';
-    export let question = '';
+  interface Props {
+    question?: string;
+  }
+
+  let { question = '' }: Props = $props();
     // Define writable stores for form fields
     const name = writable('');
     const email = writable('');
@@ -47,7 +51,7 @@
         <h2>{question}</h2>
         <p>Leave me a message</p>
     </div>
-    <form id="contactForm" on:submit={handleSubmit}>
+    <form id="contactForm" onsubmit={handleSubmit}>
         <label for="fullName">First and lastname</label>
         <input type="text" id="fullName" name="fullName" placeholder="First and lastname    " bind:value={$name} required/>
 
@@ -62,7 +66,7 @@
         />
 
         <label for="message">Message</label>
-        <textarea name="message" id="message" rows="10" cols="30" placeholder="Enter your message..." bind:value={$message} required/>
+        <textarea name="message" id="message" rows="10" cols="30" placeholder="Enter your message..." bind:value={$message} required></textarea>
 
         <button type="submit">Senden</button>
     </form>
